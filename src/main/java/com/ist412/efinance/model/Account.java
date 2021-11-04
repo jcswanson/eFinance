@@ -1,7 +1,11 @@
 package com.ist412.efinance.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="accounts")
@@ -10,20 +14,33 @@ public class Account implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "fName")
+    @Column(name = "firstname")
     private String firstName;
-    @Column(name = "lName")
+    @Column(name = "lastname")
     private String lastName;
-    @Column(name = "Email")
+    @Column(name = "email")
     private String email;
-    @Column(name = "Pass")
-    private String password;
-    @Column(name = "User" )
-    private String user;
-    @Column(name = "Age")
+    @Column(name = "age")
     private int age;
-    @Column(name = "SSN")
+    @Column(name = "ssn")
     private int ssn;
+    @Column(name = "password")
+    private String password;
+    @Column(name = "username")
+    private String username;
+    @Column(name = "role")
+    private String role;
+    @Column(name = "enabled")
+    private Boolean enabled;
+    //private BankAccount bankAccount;
+
+
+
+//    @ManyToMany(mappedBy = "accounts")
+//    @JsonIgnore
+//    private Set<User> users = new HashSet<>();
+
+
 
 
 
@@ -55,13 +72,7 @@ public class Account implements Serializable {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public int getAge() {
         return age;
@@ -87,11 +98,43 @@ public class Account implements Serializable {
         this.id = id;
     }
 
-    public String getUser() {
-        return user;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setPassword(String password) {
+        this.password = password;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    //    public Set<User> getUsers() {
+//        return users;
+//    }
+//
+//    public void setUsers(Set<User> users) {
+//        this.users = users;
+//    }
 }
