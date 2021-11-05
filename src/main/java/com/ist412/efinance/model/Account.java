@@ -22,8 +22,6 @@ public class Account implements Serializable {
     private String email;
     @Column(name = "age")
     private Integer age;
-    @Column(name = "ssn")
-    private Integer ssn;
     @Column(name = "password")
     private String password;
     @Column(name = "username")
@@ -39,6 +37,7 @@ public class Account implements Serializable {
 //    @ManyToMany(mappedBy = "accounts")
 //    @JsonIgnore
 //    private Set<User> users = new HashSet<>();
+
 
 
 
@@ -79,14 +78,6 @@ public class Account implements Serializable {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    public Integer getSsn() {
-        return ssn;
-    }
-
-    public void setSsn(Integer ssn) {
-        this.ssn = ssn;
     }
 
     public long getId() {

@@ -21,11 +21,18 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
 
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
     @GetMapping("/showNewAccountForm")
     public String showNewAccountForm(Model model){
         Account account = new Account();
         model.addAttribute("account", account);
         return "new_account";
+
     }
 
     @PostMapping("/saveAccount")
