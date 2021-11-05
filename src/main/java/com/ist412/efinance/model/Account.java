@@ -21,17 +21,17 @@ public class Account implements Serializable {
     @Column(name = "email")
     private String email;
     @Column(name = "age")
-    private int age;
+    private Integer age;
     @Column(name = "ssn")
-    private int ssn;
+    private Integer ssn;
     @Column(name = "password")
     private String password;
     @Column(name = "username")
     private String username;
     @Column(name = "role")
-    private String role;
+    private String role = "ROLE_USER";
     @Column(name = "enabled")
-    private Boolean enabled;
+    private Boolean enabled = true;
     //private BankAccount bankAccount;
 
 
@@ -73,20 +73,19 @@ public class Account implements Serializable {
     }
 
 
-
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public int getSsn() {
+    public Integer getSsn() {
         return ssn;
     }
 
-    public void setSsn(int ssn) {
+    public void setSsn(Integer ssn) {
         this.ssn = ssn;
     }
 

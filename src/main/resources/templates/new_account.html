@@ -7,7 +7,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 <body>
+<div class="container">
+    <h1>Create a new Account</h1>
+    <form action="#" th:action="@{/saveAccount}" th:object="${account}" method="POST">
+        <input type="text" th:field="*{firstName}"
+               placeholder="First Name" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{lastName}"
+               placeholder="Last Name" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{email}"
+               placeholder="Email" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{username}"
+               placeholder="Username" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{password}"
+               placeholder="Password" class="form-control mb-4 col-4">
+
+        <input type="number" th:field="*{age}"
+               placeholder="Age" class="form-control mb-4 col-4">
+
+        <input type="number" th:field="*{ssn}"
+               placeholder="SSN" class="form-control mb-4 col-4">
 
 
+        <button type="submit" class="btn btn-info col-2">Create Account</button>
+
+    </form>
+</div>
 </body>
 </html>

@@ -25,11 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.usersByUsernameQuery("select username, password, from users")
 
                 // Users Database
-
-//                .usersByUsernameQuery(
-//                     "SELECT username, password, enabled FROM users WHERE username=?")
-//                .authoritiesByUsernameQuery(
-//                        "SELECT username, 'ROLE_USER' FROM users WHERE username=?");
+//                .usersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username=?")
+//                .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM users WHERE username=?");
 
                 // Accounts Database
                 .usersByUsernameQuery("SELECT username, password, enabled FROM accounts WHERE username=?")
