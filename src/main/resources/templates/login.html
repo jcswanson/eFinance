@@ -32,7 +32,11 @@
 </form>
 
 </div>
-    <a th:href="@{/showNewAccountForm}" class="btn btn-primary">Create Account</a>
+
+<div th:action="@{/saveAccount}" class="container">
+
+    <a th:href="@{/showNewAccountForm}" class="btn btn-lg btn-primary btn-block">Create Account</a>
+</div>
 
 </body>
 </html>

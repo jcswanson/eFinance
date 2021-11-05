@@ -30,7 +30,7 @@ public class Account implements Serializable {
     private String role = "ROLE_USER";
     @Column(name = "enabled")
     private Boolean enabled = true;
-    //private BankAccount bankAccount;
+
 
 
 

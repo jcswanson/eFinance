@@ -1,5 +1,6 @@
 package com.ist412.efinance.security;
 
+import com.ist412.efinance.model.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .dataSource(dataSource)
 
-                //.usersByUsernameQuery("select username, password, from users")
+
+
 
                 // Users Database
 //                .usersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username=?")
@@ -41,10 +43,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers( "/showNewAccountForm").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
                 .and()
+
+
                 .logout().permitAll();
     }
 
