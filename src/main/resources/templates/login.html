@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<div class="container">
+<div div class="container" style="display: flex; justify-content: center; align-items: center; height: 100vh">
 
     <form class="form-signin" th:action="@{/login}" method="post">
     <h2 class="form-signin-heading">Please sign in</h2>
@@ -24,18 +24,14 @@
                placeholder="Password" required autofocus/>
     </p>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button><br/><br>
+    <button class="btn btn-primary btn-lg btn-block" type="submit">Sign in</button><br/><br>
+        <a th:href="@{/showNewAccountForm}" class="btn btn-primary btn-lg btn-block">Create Account</a>
 
 
 
 
 </form>
 
-</div>
-
-<div th:action="@{/saveAccount}" class="container">
-
-    <a th:href="@{/showNewAccountForm}" class="btn btn-lg btn-primary btn-block">Create Account</a>
 </div>
 
 </body>
