@@ -35,20 +35,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // Accounts Database
                 .usersByUsernameQuery("SELECT username, password, enabled FROM accounts WHERE username=?")
                 .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM accounts WHERE username=?");
-
-
-
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers( "/showNewAccountForm").permitAll()
+                .antMatchers( "/showNewAccountForm", "/saveAccount").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
                 .and()
-
 
                 .logout().permitAll();
     }

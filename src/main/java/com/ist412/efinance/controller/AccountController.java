@@ -27,12 +27,7 @@ public class AccountController {
 
         return "login";
 
-
     }
-
-
-
-
 
     @GetMapping("/showNewAccountForm")
     public String showNewAccountForm(Model model){
