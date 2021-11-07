@@ -26,12 +26,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
 
                 .dataSource(dataSource)
+
+                // authenticate hashed passwords
                 .passwordEncoder(passwordEncoder())
 
-                // Accounts Database
-                .usersByUsernameQuery("SELECT username, password, enabled FROM accounts WHERE username=?")
-                .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM accounts WHERE username=?");
-
+                // users Database
+                .usersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username=?")
+                .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM users WHERE username=?");
 
     }
 
@@ -49,14 +50,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().loginPage("/login").permitAll()
                 .and()
-
-
                 .logout().permitAll();
 
     }
-
-
-
 
 
 }

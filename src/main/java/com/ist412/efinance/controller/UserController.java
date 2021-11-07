@@ -22,14 +22,12 @@ public class UserController {
 
     @GetMapping("/login")
     public String login(){
-
         return "login";
 
     }
 
     @GetMapping("/home")
     public String home(){
-
         return "/";
     }
 
@@ -38,8 +36,6 @@ public class UserController {
     public String showNewUserForm(Model model){
         User user = new User();
         model.addAttribute("user", user);
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
-
         return "registration";
 
     }
@@ -47,8 +43,9 @@ public class UserController {
     @PostMapping("/saveUser")
     public String saveUser(@ModelAttribute("user") User user){
         userService.saveUser(user);
+        return "redirect:/";
 
-
-        return "login";
     }
+
+
 }

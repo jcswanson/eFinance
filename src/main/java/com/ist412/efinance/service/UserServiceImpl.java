@@ -11,8 +11,6 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService{
 
-
-
     @Autowired
     private UserRepository userRepository;
 
@@ -29,7 +27,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public void saveUser(User user) {
 
+        // encode user password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        //save user to repository
         this.userRepository.save(user);
 
     }
