@@ -1,6 +1,7 @@
 package com.ist412.efinance.security;
 
 import com.ist412.efinance.model.Account;
+import com.ist412.efinance.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,32 +22,37 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private DataSource dataSource;
 
     @Autowired
-    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {auth.jdbcAuthentication().passwordEncoder(new BCryptPasswordEncoder())
+    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication()
 
                 .dataSource(dataSource)
-
-
-
-
-                // Users Database
-//                .usersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username=?")
-//                .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM users WHERE username=?");
+                .passwordEncoder(passwordEncoder())
 
                 // Accounts Database
                 .usersByUsernameQuery("SELECT username, password, enabled FROM accounts WHERE username=?")
                 .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM accounts WHERE username=?");
+
+
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        return encoder;
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers( "/showNewAccountForm", "/saveAccount").permitAll()
+                .antMatchers( "/showNewAccountForm", "/saveUser", "/saveAccount", "/showNewUserForm").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
                 .and()
 
+
                 .logout().permitAll();
+
     }
 
 

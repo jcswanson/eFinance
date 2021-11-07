@@ -1,0 +1,17 @@
+.bkground {
+    background-color: rgba(35,255,100,.25);
+}
+#formButton {
+    background-color: lightslategray;
+}
+
+.page-title {
+    margin-bottom: 3%;
+    font-family: "Roboto", "Verdana", "SansSerif";
+    color: lightslategray;
+
+}
+
+.container-margin {
+    margin-top: 5%;
+}
