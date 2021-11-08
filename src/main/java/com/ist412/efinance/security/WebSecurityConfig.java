@@ -1,7 +1,6 @@
 package com.ist412.efinance.security;
 
-import com.ist412.efinance.model.Account;
-import com.ist412.efinance.model.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -45,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers( "/showNewAccountForm", "/saveUser", "/saveAccount", "/showNewUserForm").permitAll()
+                .antMatchers(  "/saveUser", "/showNewUserForm").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
