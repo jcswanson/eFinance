@@ -7,11 +7,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 <body>
-Welcome, you have logged in
-<div class="container my-2">
-    <br/>
-    <a th:href="@{/showNewAccountForm}" class="btn btn-primary">Create Account</a>
 
+<nav th:fragment="navbar" class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/}">eFinance</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a class="nav-link" th:href="@{/home}">Home</a></li>
+
+            <li><a class="nav-link" th:href="@{/account}">Account</a></li>
+
+            <li><a class="nav-link" th:href="@{/loan}">Loan</a></li>
+
+            <li><a class="nav-link" th:href="@{/contact}">Contact</a></li>
+
+            <li><a class="nav-link" th:href="@{/about}">About</a></li>
+
+        </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="content">
+
+        <!-- ============================================================================ -->
+        <!-- This content is only used for static prototyping purposes (natural templates)-->
+        <!-- and is therefore entirely optional, as this markup fragment will be included -->
+        <!-- from "fragments/header.html" at runtime.                                     -->
+        <!-- ============================================================================ -->
+        <h1 style="text-align:center;">Welcome to eFinance!</h1> </br>
+        <p style="text-align:center;">
+            This project was created by Group 5
+        </p>
 </div>
 </body>
 </html>
