@@ -1,14 +1,30 @@
-.bkground {
-    background-color: rgba(35,255,100,.25);
+#nav-style {
+    background-color: #FEFFFF;
+    color: #2B7A78;
 }
-#formButton {
-    background-color: lightslategray;
+
+body {
+    background-color: #3AAFA9;
+}
+.formButton {
+    background-color: #3AAFA9;
+    border-color: #FEFFFF;
+    border-width: 2px;
+    border-radius: 2px;
+
+}
+.loginTitle {
+    margin-bottom: 3%;
+    font-family: "Roboto", "Verdana", "SansSerif";
+    color: #FEFFFF;
+    background-color: #17252A;
+    border-radius: 5px;
 }
 
 .page-title {
     margin-bottom: 3%;
     font-family: "Roboto", "Verdana", "SansSerif";
-    color: lightslategray;
+    color: #17252A;
 
 }
 
@@ -16,3 +32,8 @@
     margin-top: 5%;
 }
 
+/*#17252A*/
+/*#2B7A78*/
+/*#3AAFA9*/
+/*#DEF2F1*/
+/*#FEFFFF*/

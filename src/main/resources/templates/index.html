@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <title>Welcome to eFinance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/formatting.css">
 </head>
-<body>
 
-<nav th:fragment="navbar" class="navbar navbar-expand-md bg-dark navbar-dark">
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" th:href="@{/}">eFinance</a>
+
+                <img th:src="@{/static/images/ef-fist-trans-sm.png}"
+                     class="navbar-brand img-responsive center-block" width="325" height="85" alt="Logo"/></a>
         </div>
         <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
@@ -29,8 +32,8 @@
         </div>
     </div>
 </nav>
-
-<div class="content">
+<body class="context">
+<div class="context container container-margin">
 
         <!-- ============================================================================ -->
         <!-- This content is only used for static prototyping purposes (natural templates)-->
