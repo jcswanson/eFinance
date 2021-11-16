@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<nav th:fragment="navbar" style="background-color: hsla(150, 42%, 62%, 1);" class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/}">
+                <img src="https://raw.githubusercontent.com/jcswanson/jcswanson.github.io/master/images/efin-fist-dark.svg"
+                     class="img-responsive center-block" width="320" height="53" alt="Logo"/>
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a class="nav-link" th:href="@{/}">Home</a></li>
+
+                <li><a class="nav-link" th:href="@{/account}">Account</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" th:href="@{/loans}" id="navbarDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">Financing</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" th:href="@{loans/auto-loan}">Auto Loan</a></li>
+                        <li><a class="dropdown-item" th:href="@{loans/personal-loan}">Personal Loan</a></li>
+                        <li><a class="dropdown-item" th:href="@{loans/business-loan}">Business Loan</a></li>
+                    </ul>
+                </li>
+
+                <li><a class="nav-link" th:href="@{/contact}">Contact</a></li>
+
+                <li><a class="nav-link" th:href="@{/about}">About</a></li>
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-right: 100px;">
+        <button th:href="@{/login}" class="btn btn-sm btn-outline-secondary" type="button">Login</button>
+        <button th:href="@{/showNewUserForm}" class="btn btn-sm btn-outline-secondary" type="button">Register</button>
+    </div>
+
+</nav>
+<nav th:fragment="user-navbar" class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/}">
+                <img src="https://raw.githubusercontent.com/jcswanson/jcswanson.github.io/master/images/efin-fist-dark.svg"
+                     class="img-responsive center-block" width="320" height="53" alt="Logo"/>
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a class="nav-link" th:href="@{/home}">Home</a></li>
+
+                <li><a class="nav-link" th:href="@{/account}">Account</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" th:href="@{/loans}" id="navbarDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">Financing</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" th:href="@{loans/auto-loan}">Auto Loan</a></li>
+                        <li><a class="dropdown-item" th:href="@{loans/personal-loan}">Personal Loan</a></li>
+                        <li><a class="dropdown-item" th:href="@{loans/business-loan}">Business Loan</a></li>
+                    </ul>
+                </li>
+
+                <li><a class="nav-link" th:href="@{/userLoans}">Loan Accounts</a></li>
+
+                <li><a class="nav-link" th:href="@{/contact}">Contact</a></li>
+
+                <li><a class="nav-link" th:href="@{/about}">About</a></li>
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-right: 100px;">
+        <button th:href="@{/logout}" class="btn btn-sm btn-outline-secondary" type="button">Logout</button>
+    </div>
+
+</nav>
+</html>
