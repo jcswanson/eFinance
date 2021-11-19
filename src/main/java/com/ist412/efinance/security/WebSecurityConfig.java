@@ -1,17 +1,19 @@
 package com.ist412.efinance.security;
 
 
+import javax.sql.DataSource;
+
+import com.ist412.efinance.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
@@ -20,37 +22,67 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-    @Autowired
-    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication()
 
-                .dataSource(dataSource)
-
-                // authenticate hashed passwords
-                .passwordEncoder(passwordEncoder())
-
-                // users Database
-                .usersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username=?")
-                .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM users WHERE username=?");
-
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return new CustomUserDetailsService();
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
-        PasswordEncoder encoder = new BCryptPasswordEncoder();
-        return encoder;
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService());
+        authProvider.setPasswordEncoder(passwordEncoder());
+
+        return authProvider;
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(authenticationProvider());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers(  "/saveUser", "/showNewUserForm").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin().loginPage("/login").permitAll()
-                .and()
-                .logout().permitAll();
 
+        http.authorizeRequests()
+                .antMatchers("/userHome").authenticated()
+                .antMatchers("/","/saveUser", "/showNewUserForm").permitAll()
+                .anyRequest()
+                .permitAll()
+                .and()
+                .formLogin()
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/userHome", true)
+                    .permitAll()
+                .and()
+                .logout().logoutSuccessUrl("/logout").permitAll();
+
+//          Setting up permission possibilities
+//        http
+//                .csrf().disable()
+//                .authorizeRequests()
+//                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .antMatchers("/anonymous*").anonymous()
+//                .antMatchers("/login*").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login.html")
+//                .loginProcessingUrl("/perform_login")
+//                .defaultSuccessUrl("/user-home.html", true)
+//                .failureUrl("/login.html?error=true")
+//                .failureHandler(authenticationFailureHandler())
+//                .and()
+//                .logout()
+//                .logoutUrl("/perform_logout")
+//                .deleteCookies("JSESSIONID")
+//                .logoutSuccessHandler(logoutSuccessHandler());
     }
 
 

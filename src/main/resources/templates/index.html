@@ -1,37 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome to eFinance</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/formatting.css">
-</head>
+<head th:replace="~{fragments/header :: head}"></head>
+<nav th:replace="~{fragments/navbar :: navbar}"></nav>
 
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <div class="container-fluid">
-        <div class="navbar-header">
-
-                <img th:src="@{/static/images/ef-fist-trans-sm.png}"
-                     class="navbar-brand img-responsive center-block" width="325" height="85" alt="Logo"/></a>
-        </div>
-        <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-            <li><a class="nav-link" th:href="@{/home}">Home</a></li>
-
-            <li><a class="nav-link" th:href="@{/account}">Account</a></li>
-
-            <li><a class="nav-link" th:href="@{/loan}">Loan</a></li>
-
-            <li><a class="nav-link" th:href="@{/contact}">Contact</a></li>
-
-            <li><a class="nav-link" th:href="@{/about}">About</a></li>
-
-        </ul>
-        </div>
-    </div>
-</nav>
 <body class="context">
 <div class="context container container-margin">
 
@@ -40,10 +12,16 @@
         <!-- and is therefore entirely optional, as this markup fragment will be included -->
         <!-- from "fragments/header.html" at runtime.                                     -->
         <!-- ============================================================================ -->
-        <h1 style="text-align:center;">Welcome to eFinance!</h1> </br>
+    <h1 style="text-align:center;" th:inline="text">
+        Welcome to eFinance!</h1>
+    </br>
         <p style="text-align:center;">
             This project was created by Group 5
         </p>
+    <div class="container col-6" style="text-align:center;">
+        <a th:href="@{/login}" class="btn btn-outline-success btn-lg col-12 btn-block ">Login to eFinance</a>
+        <a th:href="@{/showNewUserForm}" class="btn btn-outline-success btn-lg col-12 btn-block ">Create eFinance Account</a>
+    </div>
 </div>
 </body>
 </html>
