@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name = "bankaccount")
+@Table(name = "bank_account")
 public class BankAccount implements Serializable {
 
     @Id
