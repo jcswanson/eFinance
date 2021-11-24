@@ -53,8 +53,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/userHome").hasRole(USER)
-                .antMatchers("/","/saveUser", "/showNewUserForm").permitAll()
+                .antMatchers("/userHome", "/loans", "/newAutoLoan", "/saveAutoLoan").hasRole(USER)
+                .antMatchers("/","/saveUser", "/showNewUserForm", "/about", "/contact").permitAll()
                 .anyRequest()
                 .permitAll()
                 .and()

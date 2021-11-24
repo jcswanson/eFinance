@@ -2,11 +2,14 @@ package com.ist412.efinance.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
+@Slf4j
 @Entity
 @Getter
 @Setter
@@ -47,5 +50,35 @@ public class Loan implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "applicant_id")
     private User applicant;
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        return loanId != null && loanId.equals(((User) obj).getUid());
+        }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(loanId);
+    }
+
+    @Override
+    public String toString() {
+        return "Loan{" +
+                "loanId= " + loanId +
+                ", socialSecurityNumber= " + socialSecurityNumber +
+                ", applicant= " + applicant +
+                ", loanAmount= " + loanAmount +
+                '}';
+    }
 }
 

@@ -1,8 +1,98 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/header :: head}"></head>
-<nav th:replace="~{fragments/navbar :: navbar}"></nav>
+<nav th:replace="~{fragments/navbar :: user-navbar}"></nav>
 <body>
+<div class="container container-margin">
+
+    <h2 class="page-title">ATZ Bank's Auto Financing Application Form</h2>
+    <hr>
+    <form class="row g-3" th:action="@{/saveAutoLoan}" th:object="${autoLoan}" method="POST">
+        <!-- success message -->
+        <!--        <div th:if="${param.success}">-->
+        <!--            <div class="alert alert-info">You've successfully registered-->
+        <!--                to our awesome app!</div>-->
+        <!--        </div>-->
+        <h3>Car Information</h3>
+        <br>
+        <hr>
+        <div class="col-md-4">
+            <label for="make" class="form-label">Make</label>
+            <input placeholder="Enter car make" type="text" th:field="*{make}" id="make" class="form-control" >
+        </div>
+        <div class="col-md-4">
+            <label for="model" class="form-label">Model</label>
+            <input type="text" th:field="*{model}" id="model" class="form-control"  placeholder="Enter car model">
+        </div>
+        <div class="col-md-2">
+            <label for="year" class="form-label">Year</label>
+            <input type="number" th:field="*{year}" id="year" class="form-control"  placeholder=2000 >
+        </div>
+        <div class="col-md-2">
+            <label for="mileage" class="form-label">Mileage</label>
+            <input type="text" th:field="*{mileage}" id="mileage" class="form-control"  placeholder="Enter mileage">
+        </div>
+        <div class="col-md-4">
+            <label for="vinNumber" class="form-label">VIN Number</label>
+            <input type="text" th:field="*{vinNumber}" id="vinNumber" class="form-control"  placeholder="Enter VIN" >
+        </div>
+        <div class="col-md-4">
+            <label for="isUsedCar" class="form-label">Is car used?</label>
+            <input type="checkbox" th:field="*{isUsedCar}" id="isUsedCar" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label for="dealerName" class="form-label">DealerName</label>
+            <input type="text" th:field="*{dealerName}" id="dealerName" class="form-control"  placeholder="Enter dealer name">
+            <!--            <select id="state" class="form-select">-->
+            <!--                <option selected>Choose...</option>-->
+            <!--                <option>...</option>-->
+            <!--            </select>-->
+        </div>
+        <div>
+            <h3> Applicant Information</h3>
+            <br>
+            <hr>
+        </div>
+        <div class="col-md-4">
+            <label for="socialSecurityNumber" class="form-label">Applicant SSN</label>
+            <input type="text" th:field="*{socialSecurityNumber}" id="socialSecurityNumber" class="form-control"  placeholder="Enter ssn number">
+        </div>
+        <div class="col-md-4">
+            <label for="employer" class="form-label">Applicant Employer</label>
+            <input type="text" th:field="*{employer}" class="form-control" id="employer" placeholder="Enter employer">
+        </div>
+        <div class="col-md-4">
+            <label for="jobTitle" class="form-label">Job Title</label>
+            <input type="text" th:field="*{jobTitle}" id="jobTitle" class="form-control" placeholder="Enter job title" >
+        </div>
+        <div class="col-md-3">
+            <label for="annualSalaryAmount" class="form-label">Annual Salary </label>
+            <input type="text" th:field="*{annualSalaryAmount}" id="annualSalaryAmount" class="form-control"  placeholder="Enter annual salary">
+        </div>
+        <div class="col-md-3">
+            <label for="interestRate" class="form-label">Interest Rate</label>
+            <input type="text" th:field="*{interestRate}"class="form-control" id="interestRate" placeholder="Enter interest rate">
+        </div>
+        <div class="col-md-3">
+            <label for="loanTerm" class="form-label">Loan Term (months)</label>
+            <input type="text" th:field="*{loanTermInMonths}"id="loanTerm" class="form-control" placeholder="Enter loan term in months">
+        </div>
+        <div class="col-md-3">
+            <label for="loanAmount" class="form-label">Loan Amount Needed</label>
+            <input type="text" th:field="*{loanAmount}"id="loanAmount" class="form-control"  placeholder="Enter loan amount">
+        </div>
+
+        <hr>
+        <!--        <div class="col-12">-->
+        <!--            <a th:href="@{login.html}" class="form-check-label">Already Registered? Login Here!</a>-->
+        <!--        </div>-->
+        <div class="col-12">
+            <button  type="submit" class="btn btn-outline-success btn-lg col-4" id="formButton">Apply for Loan</button>
+        </div>
+    </form>
+</div>
+
+<div th:replace="~{fragments/bootscript :: bootstrap-js}"></div>
 
 </body>
 </html>

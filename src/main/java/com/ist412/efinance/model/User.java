@@ -1,6 +1,7 @@
 package com.ist412.efinance.model;
 
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 
 
 import javax.persistence.*;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
+@Slf4j
 @Entity
 @Table(name = "users")
 @Getter
