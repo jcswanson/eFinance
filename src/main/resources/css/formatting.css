@@ -1,13 +1,13 @@
-#nav-style {
-    background-color: #FEFFFF;
-    color: #2B7A78;
+.navbar-dark {
+
+    color: hsla(129, 53%, 90%, 1);
 }
 
 body {
-    background-color: #3AAFA9;
+    background-color: hsla(141, 45%, 81%, 0.5);;
 }
 .formButton {
-    background-color: #3AAFA9;
+    background-color: hsla(159, 56%, 7%, 1);;
     border-color: #FEFFFF;
     border-width: 2px;
     border-radius: 2px;
@@ -16,15 +16,15 @@ body {
 .loginTitle {
     margin-bottom: 3%;
     font-family: "Roboto", "Verdana", "SansSerif";
-    color: #FEFFFF;
-    background-color: #17252A;
+    color: hsla(159, 56%, 7%, 1);
+    background-color: hsla(141, 45%, 81%, 1);
     border-radius: 5px;
 }
 
 .page-title {
     margin-bottom: 3%;
     font-family: "Roboto", "Verdana", "SansSerif";
-    color: #17252A;
+    color: hsla(159, 56%, 7%, 1);;
 
 }
 
@@ -32,8 +32,14 @@ body {
     margin-top: 5%;
 }
 
-/*#17252A*/
-/*#2B7A78*/
-/*#3AAFA9*/
-/*#DEF2F1*/
-/*#FEFFFF*/
+/*!* CSS HSL *!*/
+/*--nyanza: hsla(129, 53%, 90%, 1);*/
+/*--turquoise-green: hsla(141, 45%, 81%, 1);*/
+/*--turquoise-green-2: hsla(147, 43%, 71%, 1);*/
+/*--ocean-green: hsla(150, 42%, 62%, 1);*/
+/*--ocean-green-2: hsla(152, 41%, 52%, 1);*/
+/*--illuminating-emerald: hsla(153, 39%, 41%, 1);*/
+/*--bottle-green: hsla(153, 40%, 30%, 1);*/
+/*--brunswick-green: hsla(155, 43%, 18%, 1);*/
+/*--dark-jungle-green: hsla(159, 56%, 7%, 1);*/
+
