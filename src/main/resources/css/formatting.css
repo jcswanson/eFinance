@@ -32,6 +32,72 @@ body {
     margin-top: 5%;
 }
 
+/* LOAN APPLICATION STYLE */
+
+input[type=text],input[type=tel ],textarea,input[type=number], select {
+    width: 40%;
+    padding: 10px 15px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+
+.one{
+    background-color:DodgerBlue ;
+    height:35px;
+}
+
+.two{
+
+    background-color: pink;
+    height:30px;
+    font-size: 4;
+}
+input[type=submit] {
+    width: 10%;
+    background-color: green;
+    color: white;
+    padding: 10px 15px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=date],input[type=number]{
+    width:25%;
+    height:5%;
+}
+input[type=submit]:hover {
+    background-color: green;
+}
+
+.div1 {
+    border-radius: 15px;
+    background-color:LightGray;
+    padding: 50px;
+}
+
+.col-25 {
+    float: left;
+    width: 28%;
+    margin-top: 3px;
+}
+
+.col-75 {
+    float: left;
+    width: 45%;
+    margin-top: 3px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 /*!* CSS HSL *!*/
 /*--nyanza: hsla(129, 53%, 90%, 1);*/
 /*--turquoise-green: hsla(141, 45%, 81%, 1);*/

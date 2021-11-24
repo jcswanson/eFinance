@@ -9,19 +9,20 @@
                      class="img-responsive center-block" width="320" height="53" alt="Logo"/>
             </a>
         </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+        <div class="navbar-collapse collapse"id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li><a class="nav-link" th:href="@{/}">Home</a></li>
 
                 <li><a class="nav-link" th:href="@{/account}">Account</a></li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" th:href="@{/loans}" id="navbarDropdownMenuLink" role="button"
+                    <a class="nav-link dropdown-toggle"  id="navbarScrollingDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">Financing</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" th:href="@{loans/auto-loan}">Auto Loan</a></li>
-                        <li><a class="dropdown-item" th:href="@{loans/personal-loan}">Personal Loan</a></li>
-                        <li><a class="dropdown-item" th:href="@{loans/business-loan}">Business Loan</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" th:href="@{/newAutoLoan}">Auto Loan</a></li>
+                        <li><a class="dropdown-item" th:href="@{loans/personal-loan.html}">Personal Loan</a></li>
+                        <li><a class="dropdown-item" th:href="@{loans/business-loan.html}">Business Loan</a></li>
+                        <li><a class="dropdown-item" th:href="@{/loans}">My Loans</a></li>
                     </ul>
                 </li>
 
@@ -47,19 +48,20 @@
                      class="img-responsive center-block" width="320" height="53" alt="Logo"/>
             </a>
         </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+        <div class="navbar-collapse collapse"id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li><a class="nav-link" th:href="@{/home}">Home</a></li>
 
                 <li><a class="nav-link" th:href="@{/account}">Account</a></li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" th:href="@{/loans}" id="navbarDropdownMenuLink" role="button"
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">Financing</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" th:href="@{loans/auto-loan}">Auto Loan</a></li>
-                        <li><a class="dropdown-item" th:href="@{loans/personal-loan}">Personal Loan</a></li>
-                        <li><a class="dropdown-item" th:href="@{loans/business-loan}">Business Loan</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" th:href="@{/newAutoLoan}">Auto Loan</a></li>
+                        <li><a class="dropdown-item" th:href="@{loans/personal-loan.html}">Personal Loan</a></li>
+                        <li><a class="dropdown-item" th:href="@{loans/business-loan.html}">Business Loan</a></li>
+                        <li><a class="dropdown-item" th:href="@{/loans}">My Loans</a></li>
                     </ul>
                 </li>
 

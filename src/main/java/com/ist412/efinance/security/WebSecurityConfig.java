@@ -19,9 +19,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private static final String ADMIN = "ADMIN";
+    private static final String USER = "USER";
+
     @Autowired
     private DataSource dataSource;
-
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -51,8 +53,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/userHome").authenticated()
-                .antMatchers("/","/saveUser", "/showNewUserForm").permitAll()
+                .antMatchers("/userHome", "/loans", "/newAutoLoan", "/saveAutoLoan").hasRole(USER)
+                .antMatchers("/","/saveUser", "/showNewUserForm", "/about", "/contact").permitAll()
                 .anyRequest()
                 .permitAll()
                 .and()
