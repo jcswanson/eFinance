@@ -10,21 +10,21 @@ import java.io.Serializable;
 public class BankAccount implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long uid;
     @Column(name = "first")
     private String firstName;
     @Column(name = "last")
     private String lastName;
-    @Column(name = "bankname")
+    @Column(name = "bankName")
     private String bankname; //what is the name of the bank used
-    @Column(name = "bankaccountnumber")
-    private Long bankaccountnumber;
-    @Column(name = "routingnumber")
-    private Long routingnumber; //9 digit routing number
-    @Column(name = "accounttype")
-    private String accounttype;//checking, savings or other
+    @Column(name = "bankAccountnumber")
+    private Long bankAccountnumber;
+    @Column(name = "routingNumber")
+    private Long routingNumber; //9 digit routing number
+    @Column(name = "accountType")
+    private String accountType;//checking, savings or other
 
     public BankAccount(){
 
@@ -56,20 +56,20 @@ public class BankAccount implements Serializable {
         this.lastName = lastName;
     }
 
-    public Long getBankaccountnumber() {
-        return bankaccountnumber;
+    public Long getBankAccountnumber() {
+        return bankAccountnumber;
     }
 
-    public void setBankaccountnumber(Long bankaccountnumber) {
-        this.bankaccountnumber = bankaccountnumber;
+    public void setBankAccountnumber(Long bankaccountnumber) {
+        this.bankAccountnumber = bankaccountnumber;
     }
 
-    public Long getRoutingnumber() {
-        return routingnumber;
+    public Long getRoutingNumber() {
+        return routingNumber;
     }
 
-    public void setRoutingnumber(Long routingnumber) {
-        this.routingnumber = routingnumber;
+    public void setRoutingNumber(Long routingnumber) {
+        this.routingNumber = routingnumber;
     }
 
     public String getBankname() {
@@ -80,11 +80,11 @@ public class BankAccount implements Serializable {
         this.bankname = bankname;
     }
 
-    public String getAccounttype() {
-        return accounttype;
+    public String getAccountType() {
+        return accountType;
     }
 
-    public void setAccounttype(String accounttype) {
-        this.accounttype = accounttype;
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 }
