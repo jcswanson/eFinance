@@ -26,20 +26,29 @@ public class LoanController {
         return "loans/loans";
     }
 
+    @GetMapping("/newBusinessLoan")
+    public String showBusinessLoanApplication(){
+        return "loans/business-loan";
+    }
+
+    @GetMapping("/newPersonalLoan")
+    public String showPersonalLoanApplication(){
+        return "loans/personal-loan";
+    }
 
     @GetMapping("/newAutoLoan")
     public String showAutoLoanApplication(Model model){
-        Loan autoLoan = new AutoLoan();
+        AutoLoan autoLoan = new AutoLoan();
         model.addAttribute("autoLoan", autoLoan);
         return "loans/auto-loan";
     }
 
     @PostMapping("/saveAutoLoan")
-    public String saveAutoLoan(@ModelAttribute("autoLoan") Loan autoLoan){
+    public String saveAutoLoan(@ModelAttribute("autoLoan") AutoLoan autoLoan){
         // how to add User data into the applicant attribute of AutoLoan??
-
-        loanServiceImpl.saveLoan(autoLoan);
+        this.loanServiceImpl.saveAutoLoan(autoLoan);
         return "redirect:/loans";
     }
+
 
 }

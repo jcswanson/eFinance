@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity
-public class AutoLoan extends Loan implements Serializable {
+public class AutoLoan extends Loan {
 
     private String vinNumber;
     private String make;
