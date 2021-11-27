@@ -34,7 +34,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-            <optional>false</optional>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>

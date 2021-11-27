@@ -1,13 +1,7 @@
 package com.ist412.efinance.service;
 
-import com.ist412.efinance.model.AutoLoan;
-import com.ist412.efinance.model.BusinessLoan;
-import com.ist412.efinance.model.Loan;
-import com.ist412.efinance.model.PersonalLoan;
-import com.ist412.efinance.repository.AutoLoanRepository;
-import com.ist412.efinance.repository.BusinessLoanRepository;
-import com.ist412.efinance.repository.LoanRepository;
-import com.ist412.efinance.repository.PersonalLoanRepository;
+import com.ist412.efinance.model.*;
+import com.ist412.efinance.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +20,8 @@ public class LoanServiceImpl implements LoanService {
     PersonalLoanRepository personalLoanRepository;
     @Autowired
     BusinessLoanRepository businessLoanRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @Override
     public List<Loan> getAllUserLoans(Integer userId) {
@@ -41,7 +37,11 @@ public class LoanServiceImpl implements LoanService {
     }
 
     @Override
-    public void saveLoan(Loan loan) {
+    public void saveLoan(Loan loan, User applicant)
+    {
+
+        applicant.addLoan(loan);
+        loan.setApplicant(applicant);
         this.loanRepository.save(loan);
     }
 

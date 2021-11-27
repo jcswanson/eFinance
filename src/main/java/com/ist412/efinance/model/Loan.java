@@ -1,5 +1,6 @@
 package com.ist412.efinance.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -11,16 +12,15 @@ import java.util.Objects;
 
 @Slf4j
 @Entity
-@Getter
-@Setter
+@Data
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Loan implements Serializable {
+public abstract class Loan  implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "loan_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long loanId;
 
     @Column(name = "ssn", length = 9)
@@ -38,7 +38,7 @@ public class Loan implements Serializable {
     // Create a new class for cosigner information?
     //private UsersCosigner cosigner;
 
-    @Column(name = "interest_rate ", length = 10)
+    @Column(name = "interest_rate ")
     private Double interestRate;
 
     @Column(name = "term_in_months", length = 4)
