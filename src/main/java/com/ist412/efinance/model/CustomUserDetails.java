@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class CustomUserDetails implements UserDetails {
 
     private static final long serialVersionUID = 1L;
-//    private User user;
+    private User user;
 
     private String username;
     private String password;
@@ -21,7 +21,7 @@ public class CustomUserDetails implements UserDetails {
     private List<GrantedAuthority> authorities;
 
     public CustomUserDetails(User user) {
-//        this.user = user;
+        this.user = user;
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.isActive = user.isEnabled();
