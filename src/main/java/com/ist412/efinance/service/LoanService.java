@@ -7,12 +7,9 @@ import java.util.List;
 
 public interface LoanService {
 
-    List<Loan> getAllUserLoans(Integer ssn);
+    List<Loan> getAllUserLoans(User user);
     List<Loan> getAllLoans();
     void saveLoan(Loan loan, User applicant);
-    void saveAutoLoan(AutoLoan autoLoan);
-    void savePersonalLoan(PersonalLoan personalLoan);
-    void saveBusinessLoan(BusinessLoan businessLoan);
     Loan getLoanById(long loanId);
     void deleteLoanById(long loanId);
 }

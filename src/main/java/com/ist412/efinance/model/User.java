@@ -65,8 +65,9 @@ public class User implements Serializable {
     private List<Loan> loans = new ArrayList<>();
 
     public void addLoan(Loan loan){
-        this.loans.add(loan);
         loan.setApplicant(this);
+        this.loans.add(loan);
+
     }
     public void removeLoan(Loan loan){
         loan.setApplicant(null);

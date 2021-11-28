@@ -24,11 +24,9 @@ public class LoanServiceImpl implements LoanService {
     UserRepository userRepository;
 
     @Override
-    public List<Loan> getAllUserLoans(Integer userId) {
-        List<Loan> loans = new ArrayList<>();
-        loanRepository.findAllBySocialSecurityNumber(userId)
-                .forEach(loans::add);
-        return loans;
+    public List<Loan> getAllUserLoans(User user) {
+        //doesn't work for some reason
+        return userRepository.getById(user.getUid()).getLoans();
     }
 
     @Override
@@ -43,22 +41,6 @@ public class LoanServiceImpl implements LoanService {
         applicant.addLoan(loan);
         loan.setApplicant(applicant);
         this.loanRepository.save(loan);
-    }
-
-    @Override
-    public void saveAutoLoan(AutoLoan autoLoan) {
-        this.autoLoanRepository.save(autoLoan);
-
-    }
-
-    @Override
-    public void savePersonalLoan(PersonalLoan personalLoan) {
-        this.personalLoanRepository.save(personalLoan);
-    }
-
-    @Override
-    public void saveBusinessLoan(BusinessLoan businessLoan) {
-        this.businessLoanRepository.save(businessLoan);
     }
 
     @Override
