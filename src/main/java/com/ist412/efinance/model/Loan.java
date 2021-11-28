@@ -14,13 +14,13 @@ import java.util.Objects;
 @Entity
 @Data
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class Loan  implements Serializable{
+public class Loan  implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "loan_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long loanId;
 
     @Column(name = "ssn", length = 9)
@@ -35,9 +35,6 @@ public abstract class Loan  implements Serializable{
     @Column(name = "annual_salary", length = 15)
     private Integer annualSalaryAmount;
 
-    // Create a new class for cosigner information?
-    //private UsersCosigner cosigner;
-
     @Column(name = "interest_rate ")
     private Double interestRate;
 
@@ -46,6 +43,9 @@ public abstract class Loan  implements Serializable{
 
     @Column(name = "loan_amount", length = 25)
     private Double loanAmount;
+
+    @Column(name = "loan_status", nullable = false, length = 12)
+    private String loanStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "applicant_id")

@@ -25,18 +25,20 @@ import java.util.Optional;
 @Controller
 public class LoanController {
 
-    @Autowired
-    private LoanRepository loanRepository;
+
 
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    CustomUserDetailsService customUserDetailsService;
 
     @Autowired
     private LoanServiceImpl loanServiceImpl;
 
     @GetMapping("/loans")
-    public String getMyLoans() {
+    public String getUserLoans(Model model, Principal principal) {
+        model.addAttribute("listOfLoans", loanServiceImpl.getAllUserLoans(customUserDetailsService.getUserByPrincipal(principal)));
         return "loans/loans";
     }
 
@@ -58,23 +60,14 @@ public class LoanController {
     }
 
     @PostMapping("/saveAutoLoan")
-    public String saveAutoLoan(@ModelAttribute("autoLoan") AutoLoan autoLoan,
-                               Errors errors,
+    public String saveAutoLoan(@ModelAttribute("autoLoan") AutoLoan autoLoan, Errors errors,
                                Principal principal){
         if(errors.hasErrors()){
             return "loans/auto-loan";
         }
-
-        String username = principal.getName();
-        Optional<User>  optionalUser = userRepository.findByUsername(username);
-        // how to add User data into the applicant attribute of AutoLoan??
-        User applicant = null;
-        if (optionalUser.isPresent()){
-            applicant = optionalUser.get();
-        }
+        User applicant = customUserDetailsService.getUserByPrincipal(principal);
+        autoLoan.setLoanStatus("SUBMITTED");
         log.info(applicant.toString());
-//        applicant.addLoan(autoLoan);
-//        autoLoan.setApplicant(applicant);
         this.loanServiceImpl.saveLoan(autoLoan, applicant);
         return "redirect:/loans";
     }
