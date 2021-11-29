@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/userHome","/static/**", "/loans","/logout", "/newAutoLoan",
-                        "/newBusinessLoan", "/newPersonalLoan","/saveAutoLoan").hasRole(USER)
+                        "/newBusinessLoan", "/newPersonalLoan","/saveAutoLoan", "/account").hasRole(USER)
                 .antMatchers("/","/static/**", "/saveUser", "/showNewUserForm",
                          "/about", "/contact").permitAll()
                 .anyRequest()
@@ -67,26 +67,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().logoutSuccessUrl("/logout").permitAll();
 
-//          Setting up permission possibilities
-//        http
-//                .csrf().disable()
-//                .authorizeRequests()
-//                .antMatchers("/admin/**").hasRole("ADMIN")
-//                .antMatchers("/anonymous*").anonymous()
-//                .antMatchers("/login*").permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .formLogin()
-//                .loginPage("/login.html")
-//                .loginProcessingUrl("/perform_login")
-//                .defaultSuccessUrl("/user-home.html", true)
-//                .failureUrl("/login.html?error=true")
-//                .failureHandler(authenticationFailureHandler())
-//                .and()
-//                .logout()
-//                .logoutUrl("/perform_logout")
-//                .deleteCookies("JSESSIONID")
-//                .logoutSuccessHandler(logoutSuccessHandler());
     }
 
 

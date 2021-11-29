@@ -35,8 +35,8 @@
         </div>
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-right: 100px;">
-        <button th:href="@{/login}" class="btn btn-sm btn-outline-secondary" type="button">Login</button>
-        <button th:href="@{/showNewUserForm}" class="btn btn-sm btn-outline-secondary" type="button">Register</button>
+        <a th:href="@{/login}" class="btn btn-sm btn-outline-secondary" type="button">Login</a>
+        <a th:href="@{/showNewUserForm}" class="btn btn-sm btn-outline-secondary" type="button">Register</a>
     </div>
 
 </nav>
@@ -50,7 +50,7 @@
         </div>
         <div class="navbar-collapse collapse"id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                <li><a class="nav-link" th:href="@{/home}">Home</a></li>
+                <li><a class="nav-link" th:href="@{/}">Home</a></li>
 
                 <li><a class="nav-link" th:href="@{/account}">Account</a></li>
 
@@ -77,7 +77,8 @@
         </div>
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-right: 100px;">
-        <button th:href="@{/logout}" class="btn btn-sm btn-outline-secondary" type="button">Logout</button>
+        <a th:href="@{/logout}" class="btn btn-sm btn-outline-secondary" type="button">Logout</a>
+
     </div>
 
 </nav>
