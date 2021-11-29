@@ -1,18 +1,15 @@
 package com.ist412.efinance.model;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
-
-
 @Entity
 @Table(name = "bank_account")
 public class BankAccount implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long uid;
+    @Column(name = "bank_id")
+    private Long bid;
     @Column(name = "first")
     private String firstName;
     @Column(name = "last")
@@ -32,12 +29,13 @@ public class BankAccount implements Serializable {
 
     //getters and setters
 
-    public Long getUid() {
-        return uid;
+
+    public Long getBid() {
+        return bid;
     }
 
-    public void setUid(Long uid) {
-        this.uid = uid;
+    public void setBid(Long bid) {
+        this.bid = bid;
     }
 
     public String getFirstName() {

@@ -7,4 +7,12 @@ import java.io.Serializable;
 public class PersonalLoan extends Loan implements Serializable {
 
 
+    private String loanPurpose;
+    private int loanAmount;
+    private int termInYears;
+
+
+
+
+
 }
