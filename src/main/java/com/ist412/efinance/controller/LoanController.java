@@ -69,6 +69,7 @@ public class LoanController {
         autoLoan.setLoanStatus("SUBMITTED");
         log.info(applicant.toString());
         this.loanServiceImpl.saveLoan(autoLoan, applicant);
+        this.loanServiceImpl.getAllLoans();
         return "redirect:/loans";
     }
 

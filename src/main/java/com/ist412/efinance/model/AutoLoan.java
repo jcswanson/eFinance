@@ -24,4 +24,68 @@ public class AutoLoan extends Loan implements Serializable{
     private String dealerName;
 
 
+
+    public String getVinNumber() {
+        return vinNumber;
+    }
+
+    public void setVinNumber(String vinNumber) {
+        this.vinNumber = vinNumber;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Integer getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(Integer mileage) {
+        this.mileage = mileage;
+    }
+
+    public Double getEngineSize() {
+        return engineSize;
+    }
+
+    public void setEngineSize(Double engineSize) {
+        this.engineSize = engineSize;
+    }
+
+    public Boolean getUsedCar() {
+        return isUsedCar;
+    }
+
+    public void setUsedCar(Boolean usedCar) {
+        isUsedCar = usedCar;
+    }
+
+    public String getDealerName() {
+        return dealerName;
+    }
+
+    public void setDealerName(String dealerName) {
+        this.dealerName = dealerName;
+    }
 }

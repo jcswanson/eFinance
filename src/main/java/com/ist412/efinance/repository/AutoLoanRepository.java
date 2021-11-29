@@ -7,4 +7,6 @@ import javax.transaction.Transactional;
 @Transactional
 public interface AutoLoanRepository extends LoanBaseRepository<AutoLoan> {
 
+
+
 }
