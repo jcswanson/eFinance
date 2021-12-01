@@ -15,11 +15,7 @@ public class BankAccountController
 {
     @Autowired
     private BankAccountService bankAccountService;
-    @GetMapping("/")
-    public String viewHomePage(Model model) {
-        model.addAttribute("listBankAccounts", bankAccountService.getAllBankAccounts());
-        return "index";
-    }
+
     @GetMapping("/showNewBankAccountForm")
     public String showNewBankAccountForm(Model model) {
         BankAccount bankAccount = new BankAccount();
@@ -35,7 +31,7 @@ public class BankAccountController
     public String showFormForUpdate(@PathVariable (value = "id") long id, Model model) {
         BankAccount bankAccount = bankAccountService.getBankAccountById(id);
         model.addAttribute("bank_account", bankAccount);
-        return "update_course";
+        return "update_bank_account";
     }
     @GetMapping("/deleteBankAccount/{id}")
     public String deleteBankAccount(@PathVariable(value = "id") long id) {

@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<nav th:fragment="navbar" style="background-color: hsla(150, 42%, 62%, 1);" class="navbar navbar-expand-md bg-dark navbar-dark">
+<!--            PERMIT ALL NAVBAR       -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark" style="background-color: hsla(150, 42%, 62%, 1);"
+     th:fragment="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" th:href="@{/}">
-                <img src="https://raw.githubusercontent.com/jcswanson/jcswanson.github.io/master/images/efin-fist-dark.svg"
-                     class="img-responsive center-block" width="320" height="53" alt="Logo"/>
+                <img alt="Logo"
+                     class="img-responsive center-block" height="53" th:src="@{/img/efin-fist-dark.svg}" width="320"/>
             </a>
         </div>
-        <div class="navbar-collapse collapse"id="navbarScroll">
+        <div class="navbar-collapse collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li><a class="nav-link" th:href="@{/}">Home</a></li>
 
                 <li><a class="nav-link" th:href="@{/account}">Account</a></li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle"  id="navbarScrollingDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">Financing</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                       id="navbarScrollingDropdown" role="button">Financing</a>
+                    <ul aria-labelledby="navbarScrollingDropdown" class="dropdown-menu">
                         <li><a class="dropdown-item" th:href="@{/newAutoLoan}">Auto Loan</a></li>
                         <li><a class="dropdown-item" th:href="@{/newPersonalLoan}">Personal Loan</a></li>
                         <li><a class="dropdown-item" th:href="@{/newBusinessLoan}">Business Loan</a></li>
@@ -35,29 +37,31 @@
         </div>
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-right: 100px;">
-        <a th:href="@{/login}" class="btn btn-sm btn-outline-secondary" type="button">Login</a>
-        <a th:href="@{/showNewUserForm}" class="btn btn-sm btn-outline-secondary" type="button">Register</a>
+        <a class="btn btn-sm btn-outline-secondary" th:href="@{/login}" type="button">Login</a>
+        <a class="btn btn-sm btn-outline-secondary" th:href="@{/showNewUserForm}" type="button">Register</a>
     </div>
 
 </nav>
-<nav th:fragment="user-navbar" class="navbar navbar-expand-md bg-dark navbar-dark">
+
+<!--            USER NAVBAR         -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark" th:fragment="user-navbar">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" th:href="@{/}">
-                <img src="https://raw.githubusercontent.com/jcswanson/jcswanson.github.io/master/images/efin-fist-dark.svg"
-                     class="img-responsive center-block" width="320" height="53" alt="Logo"/>
+            <a class="navbar-brand" th:href="@{/userHome}">
+                <img alt="Logo"
+                     class="img-responsive center-block" height="53" th:src="@{/img/efin-fist-dark.svg}" width="320"/>
             </a>
         </div>
-        <div class="navbar-collapse collapse"id="navbarScroll">
+        <div class="navbar-collapse collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li><a class="nav-link" th:href="@{/}">Home</a></li>
 
                 <li><a class="nav-link" th:href="@{/account}">Account</a></li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">Financing</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="navbarScrollingDropdown" role="button">Financing</a>
+                    <ul aria-labelledby="navbarScrollingDropdown" class="dropdown-menu">
 
                         <li><a class="dropdown-item" th:href="@{/newAutoLoan}">Auto Loan</a></li>
                         <li><a class="dropdown-item" th:href="@{/newPersonalLoan}">Personal Loan</a></li>
@@ -77,9 +81,38 @@
         </div>
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-right: 100px;">
-        <a th:href="@{/logout}" class="btn btn-sm btn-outline-secondary" type="button">Logout</a>
+        <a class="btn btn-sm btn-outline-secondary" th:href="@{/logout}" type="button">Logout</a>
 
     </div>
+
+</nav>
+
+<!--        NAVBAR FOR ADMIN        -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark" th:fragment="admin-navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/adminHome}">
+                <img alt="Logo"
+                     class="img-responsive center-block" height="53" th:src="@{/img/efin-fist-dark.svg}" width="320"/>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+
+                <a class="nav-link" th:href="@{/adminHome}">ATZ Home</a>
+
+                <a class="nav-link" th:href="@{/clients}">ATZ Clients</a>
+
+                <a class="nav-link" th:href="@{/clientLoans}">Loan Records</a>
+
+                <a class="nav-link" th:href="@{/loanProcessing}">Process Client Loans</a>
+
+            </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-right: 100px;">
+            <a class="btn btn-sm btn-outline-secondary" th:href="@{/logout}" type="button">Logout</a>
+
+        </div>
 
 </nav>
 </html>
