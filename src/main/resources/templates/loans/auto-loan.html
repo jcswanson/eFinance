@@ -36,9 +36,11 @@
             <label for="vinNumber" class="form-label">VIN Number</label>
             <input type="text" th:field="*{vinNumber}" id="vinNumber" class="form-control"  placeholder="Enter VIN" >
         </div>
-        <div class="col-md-4">
-            <label for="isUsedCar" class="form-label">Is car used?</label>
-            <input type="checkbox" th:field="*{isUsedCar}" id="isUsedCar" class="form-control">
+        <div class="form-check col-md-4" style="padding: 2.2rem 0 0 2.0rem;">
+            <input class="form-check-input" type="checkbox" value=""  id="isUsedCar">
+            <label class="form-check-label" th:field="*{isUsedCar}" for="isUsedCar">
+                Is it a used car?
+            </label>
         </div>
         <div class="col-md-4">
             <label for="dealerName" class="form-label">DealerName</label>
