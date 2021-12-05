@@ -29,14 +29,6 @@ public class UserController {
     }
 
 
-
-
-//    @GetMapping("/logout")
-//    public String logout(){
-//        return "logout";
-//    }
-
-
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
