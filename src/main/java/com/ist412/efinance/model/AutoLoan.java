@@ -23,8 +23,6 @@ public class AutoLoan extends Loan implements Serializable{
     private Boolean isUsedCar;
     private String dealerName;
 
-
-
     public String getVinNumber() {
         return vinNumber;
     }
