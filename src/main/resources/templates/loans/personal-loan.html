@@ -3,7 +3,24 @@
 <head th:replace="~{fragments/header :: head}"></head>
 <nav th:replace="~{fragments/navbar :: user-navbar}"></nav>
 <body>
-<h1>Personal Loan Application</h1>
+<div class="container container-margin">
+
+    <h1 class="page-title">Personal Loan Application</h1>
+    <hr>
+    <form class="row g-3" th:action="@{/savePersonalLoan}" th:object="${personalLoan}" method="POST">
+        <h3>Personal Information</h3>
+        <br>
+        <hr>
+        <div class="col-md-4">
+            <label for="make" class="form-label">Make</label>
+            <input placeholder="First Name: " type="text" th:field="*{fName}" id="make" class="form-control" >
+        </div>
+    </form>
+
+
+</div>
+
+
 
 
 </body>

@@ -1,9 +1,6 @@
 package com.ist412.efinance.controller;
 
-import com.ist412.efinance.model.AutoLoan;
-import com.ist412.efinance.model.CustomUserDetails;
-import com.ist412.efinance.model.Loan;
-import com.ist412.efinance.model.User;
+import com.ist412.efinance.model.*;
 import com.ist412.efinance.repository.LoanRepository;
 import com.ist412.efinance.repository.UserRepository;
 import com.ist412.efinance.service.CustomUserDetailsService;
@@ -71,7 +68,30 @@ public class LoanController {
         this.loanServiceImpl.saveLoan(autoLoan, applicant);
         this.loanServiceImpl.getAllLoans();
         return "redirect:/loans";
+
     }
+
+    @PostMapping("/savePersonalLoan")
+    public String savePersonalLoan(@ModelAttribute("personalLoan") PersonalLoan personalLoan, Errors errors,
+                               Principal principal){
+        if(errors.hasErrors()){
+            return "loans/personal-loan";
+        }
+        User applicant = customUserDetailsService.getUserByPrincipal(principal);
+        personalLoan.setLoanStatus("SUBMITTED");
+        log.info(applicant.toString());
+        this.loanServiceImpl.saveLoan(personalLoan, applicant);
+        this.loanServiceImpl.getAllLoans();
+        return "redirect:/loans";
+
+    }
+
+
+
+
+
+
+
 
 
 
