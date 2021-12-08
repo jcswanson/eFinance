@@ -98,6 +98,72 @@ input[type=submit]:hover {
     display: table;
     clear: both;
 }
+
+/*!* Home Page *!*/
+
+/*.content1{*/
+/*    width: 100%;*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*    text-align: center;*/
+/*    color: #fff;*/
+
+/*}*/
+
+/*.content1 h1{*/
+/*    font-size: 70px;*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*.content1 p{*/
+/*    margin: 20px auto;*/
+/*    font-weight: 100;*/
+/*    line-height: 25px;*/
+
+/*}*/
+
+/*.content1 button{*/
+/*    width: 200px;*/
+/*    padding: 15px 0;*/
+/*    text-align: center;*/
+/*    margin: 20px 10px;*/
+/*    border-radius: 25px;*/
+/*    font-weight: bold;*/
+/*    border: 2px solid #6082B6;*/
+/*    background: transparent;*/
+/*    color: #fff;*/
+/*    cursor: pointer;*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+
+/*}*/
+
+/*.content1 span{*/
+/*    background: #6082B6;*/
+/*    height: 100%;*/
+/*    width: 0;*/
+/*    border-radius: 25px;*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    bottom: 0;*/
+/*    z-index: -1;*/
+/*    transition: 0.5s;*/
+
+/*}*/
+
+/*.content1 button:hover span{*/
+/*    width: 100%;*/
+
+/*}*/
+
+/*.content1 button:hover{*/
+/*    border: none;*/
+/*}*/
+
+
+
+
 /*!* CSS HSL *!*/
 /*--nyanza: hsla(129, 53%, 90%, 1);*/
 /*--turquoise-green: hsla(141, 45%, 81%, 1);*/

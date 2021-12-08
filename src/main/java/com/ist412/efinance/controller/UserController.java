@@ -40,7 +40,7 @@ public class UserController {
 
     @GetMapping("/userHome")
     public String userHome(){
-        return "user-home";
+        return "User/user-home";
     }
 
     @GetMapping("/showNewUserForm")
@@ -56,9 +56,7 @@ public class UserController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-
         userRepo.save(user);
-
         return "redirect:/login";
 
     }
