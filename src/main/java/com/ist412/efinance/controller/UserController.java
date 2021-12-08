@@ -27,6 +27,7 @@ public class UserController {
         return "login";
 
     }
+
     @GetMapping("/admin")
     public String adminHome(){
         return "admin/admin-home";
@@ -35,6 +36,7 @@ public class UserController {
 //    public String logout(){
 //        return "logout";
 //    }
+
 
 
     @RequestMapping(value="/logout", method = RequestMethod.GET)
@@ -48,7 +50,11 @@ public class UserController {
 
     @GetMapping("/userHome")
     public String userHome(){
+
+        return "User/user-home";
+
         return "user/user-home";
+
     }
 
     @GetMapping("/showNewUserForm")
@@ -64,9 +70,7 @@ public class UserController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-
         userRepo.save(user);
-
         return "redirect:/login";
 
     }

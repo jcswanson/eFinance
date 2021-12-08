@@ -58,7 +58,7 @@ public class User implements Serializable {
     private String role = "ROLE_USER";
 
     @Column(name = "enabled")
-    private boolean enabled; // = true;
+    private boolean enabled = true;
 
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "applicant", orphanRemoval = true)
