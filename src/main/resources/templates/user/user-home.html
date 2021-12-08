@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head}"></head>
+<nav th:replace="~{fragments/navbar :: user-navbar}"></nav>
+
+
+<body class="context">
+<div class="context container container-margin">
+
+    <!-- ============================================================================ -->
+    <!-- This content is only used for static prototyping purposes (natural templates)-->
+    <!-- and is therefore entirely optional, as this markup fragment will be included -->
+    <!-- from "fragments/header.html" at runtime.                                     -->
+    <!-- ============================================================================ -->
+    <h1 style="text-align:center;" th:inline="text">
+        Welcome [[${#request.userPrincipal.principal.fullName}]] to eFinance!</h1>
+    </br>
+    <p style="text-align:center;">
+        This project was created by Group 5
+    </p>
+</div><div th:replace="~{fragments/bootscript :: bootstrap-js}"></div>
+
+</body>
+</html>
