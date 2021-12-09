@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
@@ -39,14 +40,11 @@ public class LoanController {
         return "loans/loans";
     }
 
+
+
     @GetMapping("/newBusinessLoan")
     public String showBusinessLoanApplication(){
         return "loans/business-loan";
-    }
-
-    @GetMapping("/newPersonalLoan")
-    public String showPersonalLoanApplication(){
-        return "loans/personal-loan";
     }
 
     @GetMapping("/newAutoLoan")
@@ -71,6 +69,13 @@ public class LoanController {
 
     }
 
+    @GetMapping("/newPersonalLoan")
+    public String showPersonalLoanApplication(Model model){
+        Loan personalLoan = new PersonalLoan();
+        model.addAttribute("personalLoan", personalLoan);
+        return "loans/personal-loan";
+    }
+
     @PostMapping("/savePersonalLoan")
     public String savePersonalLoan(@ModelAttribute("personalLoan") PersonalLoan personalLoan, Errors errors,
                                Principal principal){
@@ -83,6 +88,20 @@ public class LoanController {
         this.loanServiceImpl.saveLoan(personalLoan, applicant);
         this.loanServiceImpl.getAllLoans();
         return "redirect:/loans";
+
+    }
+
+    // Update - View form for personalLoan
+
+    @GetMapping("/showLoanFormForUpdate/{loanId}")
+    public String showLoanFormForUpdate(@PathVariable(value = "loanId") long loanId, Model model){
+
+        Loan personalLoan = loanServiceImpl.getLoanById(loanId);
+        model.addAttribute("personalLoan", personalLoan);
+
+        return "loans/update_personal-loan";
+
+
 
     }
 

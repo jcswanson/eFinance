@@ -5,38 +5,13 @@
 <body>
 <div class="container container-margin">
 
-    <h1 class="page-title">Personal Loan Application</h1>
+    <h1 class="page-title">Loan Application</h1>
     <hr>
     <form class="row g-3" th:action="@{/savePersonalLoan}" th:object="${personalLoan}" method="POST">
 
-        <h3>Personal Information</h3>
-        <hr>
-        <br>
-        <div class="col-md-4">
-            <label for="fName" class="form-label">First Name: </label>
-            <input placeholder="First Name: " type="text" th:field="*{fName}" id="fName" class="form-control" >
-        </div>
-        <div class="col-md-4">
-            <label for="lName" class="form-label">Last Name: </label>
-            <input placeholder="Last Name: " type="text" th:field="*{lName}" id="lName" class="form-control" >
-        </div>
-        <div class="col-md-4">
-            <label for="age" class="form-label">Age: </label>
-            <input placeholder="Age: " type="int" th:field="*{age}" id="age" class="form-control" >
-        </div>
-        <div class="col-md-4">
-            <label for="loanPurpose" class="form-label">Loan Purpose: </label>
-<!--            <textarea rows="10" cols="25" th:field="*{loanPurpose}" id="loanPurpose"></textarea>-->
-            <textarea placeholder="Purpose of Loan:" type="int" th:field="*{loanPurpose}" id="loanPurpose" class="form-control" rows="5"></textarea>
-        </div>
-        <div class="col-md-4">
-            <label for="signature" class="form-label">Signature: </label>
-            <input placeholder="Type Full Name" type="text" th:field="*{signature}" id="signature" class="form-control" >
-        </div>
-
-
+        <input type="hidden" th:field="*{loanId}"/>
         <div>
-            <h3> Applicant Information</h3>
+            <h3> Update Applicant Information</h3>
             <br>
             <hr>
         </div>
@@ -69,9 +44,10 @@
             <input type="text" th:field="*{loanAmount}" id="loanAmount" class="form-control"  placeholder="Enter loan amount">
         </div>
 
-
         <hr>
-
+        <!--        <div class="col-12">-->
+        <!--            <a th:href="@{login.html}" class="form-check-label">Already Registered? Login Here!</a>-->
+        <!--        </div>-->
         <div class="col-12">
             <button  type="submit" class="btn btn-outline-success btn-lg col-4" id="formButton">Apply for Loan</button>
         </div>
