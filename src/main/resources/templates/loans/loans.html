@@ -15,6 +15,7 @@
             <th>Interest Rate (%)</th>
             <th>Loan Amount ($)</th>
             <th>Loan Status</th>
+            <th>Update Loan</th>
         </tr>
         </thead>
         <tbody>
@@ -26,7 +27,7 @@
             <td th:text="${loan.loanAmount}"></td>
             <td th:text="${loan.loanStatus}"></td>
             <td>
-                <a th:href="@{/showLoanFormForUpdate/{id}(id=${loan.loanId})}" class="btn btn-primary">Update Loan</a>
+                <a th:href="@{/showPersonalLoanFormForUpdate/{id}(id=${loan.loanId})}" class="btn btn-primary">Update Loan</a>
             </td>
 
 <!--            <td> <a th:href="@{/showStudFormForUpdate/{id}(id=${student.sid})}" class="btn btn-primary">Update or Add Courses</a>-->

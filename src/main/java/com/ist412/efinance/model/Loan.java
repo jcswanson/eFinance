@@ -47,6 +47,9 @@ public class Loan  implements Serializable{
     @Column(name = "loan_status", nullable = false, length = 12)
     private String loanStatus;
 
+    @Column(name = "signature")
+    private String signature;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "applicant_id")
     private User applicant;

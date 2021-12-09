@@ -5,7 +5,7 @@
 <body>
 <div class="container container-margin">
 
-    <h1 class="page-title">Personal Loan Application</h1>
+    <h2 class="page-title">Personal Loan Application</h2>
     <hr>
     <form class="row g-3" th:action="@{/savePersonalLoan}" th:object="${personalLoan}" method="POST">
 
@@ -30,8 +30,8 @@
             <textarea placeholder="Purpose of Loan:" type="int" th:field="*{loanPurpose}" id="loanPurpose" class="form-control" rows="5"></textarea>
         </div>
         <div class="col-md-4">
-            <label for="signature" class="form-label">Signature: </label>
-            <input placeholder="Type Full Name" type="text" th:field="*{signature}" id="signature" class="form-control" >
+            <label for="personalSignature" class="form-label">Signature: </label>
+            <input placeholder="Type Full Name" type="text" th:field="*{personalSignature}" id="personalSignature" class="form-control" >
         </div>
 
 
@@ -67,6 +67,19 @@
         <div class="col-md-3">
             <label for="loanAmount" class="form-label">Loan Amount Needed</label>
             <input type="text" th:field="*{loanAmount}" id="loanAmount" class="form-control"  placeholder="Enter loan amount">
+        </div>
+
+
+        <hr>
+        <div>
+            <h3> Terms and Conditions </h3>
+            <br>
+            <hr>
+        </div>
+        <div class="col-md-3">
+            <label for="signature" class="form-label" >If you agree to the <a href="https://www.idfcfirstbank.com/personal-banking/loans/personal-loan/terms-and-conditions" target="_blank"> terms and conditions</a><br><br> Print your full name: </label>
+
+            <input type="text" th:field="*{signature}" id="signature" class="form-control"  placeholder="Print full name: ">
         </div>
 
 

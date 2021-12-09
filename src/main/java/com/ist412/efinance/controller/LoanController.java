@@ -40,13 +40,6 @@ public class LoanController {
         return "loans/loans";
     }
 
-
-
-    @GetMapping("/newBusinessLoan")
-    public String showBusinessLoanApplication(){
-        return "loans/business-loan";
-    }
-
     @GetMapping("/newAutoLoan")
     public String showAutoLoanApplication(Model model){
         Loan autoLoan = new AutoLoan();
@@ -93,14 +86,47 @@ public class LoanController {
 
     // Update - View form for personalLoan
 
-    @GetMapping("/showLoanFormForUpdate/{loanId}")
-    public String showLoanFormForUpdate(@PathVariable(value = "loanId") long loanId, Model model){
+    @GetMapping("/showPersonalLoanFormForUpdate/{loanId}")
+    public String showPersonalLoanFormForUpdate(@PathVariable(value = "loanId") long loanId, Model model){
 
         Loan personalLoan = loanServiceImpl.getLoanById(loanId);
         model.addAttribute("personalLoan", personalLoan);
+        //PersonalLoan PL = new PersonalLoan();
+        //AutoLoan AL = new AutoLoan();
 
         return "loans/update_personal-loan";
 
+    }
+
+    @PostMapping("/saveBusinessLoan")
+    public String saveBusinessLoan(@ModelAttribute("businessLoan") BusinessLoan businessLoan, Errors errors,
+                                   Principal principal){
+        if(errors.hasErrors()){
+            return "loans/business-loan";
+        }
+        User applicant = customUserDetailsService.getUserByPrincipal(principal);
+        businessLoan.setLoanStatus("SUBMITTED");
+        log.info(applicant.toString());
+        this.loanServiceImpl.saveLoan(businessLoan, applicant);
+        this.loanServiceImpl.getAllLoans();
+        return "redirect:/loans";
+
+    }
+
+    @GetMapping("/newBusinessLoan")
+    public String showBusinessLoanApplication(Model model){
+        Loan businessLoan = new BusinessLoan();
+        model.addAttribute("businessLoan", businessLoan);
+        return "loans/business-loan";
+
+    }
+
+    @GetMapping("/showAutoLoanFormForUpdate/{loanId}")
+    public String showAutoLoanFormForUpdate(@PathVariable(value = "loanId") long loanId, Model model){
+
+        Loan autoLoan = loanServiceImpl.getLoanById(loanId);
+        model.addAttribute("autoLoan", autoLoan);
+        return "loans/update_auto-loan";
 
 
     }

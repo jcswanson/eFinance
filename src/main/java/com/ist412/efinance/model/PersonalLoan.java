@@ -16,7 +16,8 @@ public class PersonalLoan extends Loan implements Serializable {
     private String lName;
     private String loanPurpose;
     private int age;
-    private String signature;
+    private String personalSignature;
+
 
     public String getfName() {
         return fName;
@@ -51,11 +52,11 @@ public class PersonalLoan extends Loan implements Serializable {
 
     }
 
-    public String getSignature() {
-        return signature;
+    public String getPersonalSignature() {
+        return personalSignature;
     }
 
-    public void setSignature(String signature) {
-        this.signature = signature;
+    public void setPersonalSignature(String personalSignature) {
+        this.personalSignature = personalSignature;
     }
 }

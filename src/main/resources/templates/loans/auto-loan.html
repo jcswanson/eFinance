@@ -83,9 +83,20 @@
         </div>
 
         <hr>
-        <!--        <div class="col-12">-->
-        <!--            <a th:href="@{login.html}" class="form-check-label">Already Registered? Login Here!</a>-->
-        <!--        </div>-->
+        <div>
+            <h3> Terms and Conditions </h3>
+            <br>
+            <hr>
+        </div>
+        <div class="col-md-3">
+            <label for="signature" class="form-label" >If you agree to the <a href="https://www.consumerfinance.gov/consumer-tools/auto-loans/answers/key-terms/" target="_blank"> terms and conditions</a><br><br> Print your full name: </label>
+
+            <input type="text" th:field="*{signature}" id="signature" class="form-control"  placeholder="Print full name: ">
+        </div>
+
+
+        <hr>
+
         <div class="col-12">
             <button  type="submit" class="btn btn-outline-success btn-lg col-4" id="formButton">Apply for Loan</button>
         </div>
