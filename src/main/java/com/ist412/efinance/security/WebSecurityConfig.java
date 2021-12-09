@@ -47,6 +47,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
+        
+        // CREATE TWO ADMIN ROLES IN MEMORY FOR LOAN PROCESSING
+         auth.inMemoryAuthentication()
+                .withUser("ATZ")
+                .password(passwordEncoder().encode("atz"))
+                .roles(ADMIN)
+                .and()
+                .withUser("atz_admin")
+                .password(passwordEncoder().encode("admin"))
+                .roles(ADMIN);
     }
 
     @Override
