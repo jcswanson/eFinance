@@ -20,7 +20,7 @@ public class BankAccountController
     public String showNewBankAccountForm(Model model) {
         BankAccount bankAccount = new BankAccount();
         model.addAttribute("bank_account", bankAccount);
-        return "new_bank_account";
+        return "bankAccount/new_bank_account";
     }
     @PostMapping("/saveBankAccount")
     public String saveBankAccount(@ModelAttribute("bank_account") BankAccount bankAccount) {
@@ -31,7 +31,7 @@ public class BankAccountController
     public String showFormForUpdate(@PathVariable (value = "id") long id, Model model) {
         BankAccount bankAccount = bankAccountService.getBankAccountById(id);
         model.addAttribute("bank_account", bankAccount);
-        return "update_bank_account";
+        return "bankAccount/update_bank_account";
     }
     @GetMapping("/deleteBankAccount/{id}")
     public String deleteBankAccount(@PathVariable(value = "id") long id) {

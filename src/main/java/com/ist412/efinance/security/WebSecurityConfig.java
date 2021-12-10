@@ -67,7 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/userHome","/static/**", "/loans","/logout", "/newAutoLoan",
                         "/newBusinessLoan", "/newPersonalLoan","/saveAutoLoan", "/account", "/savePersonalLoan", "/newPersonalLoan",
-                        "/userContact").hasRole(USER)
+                        "/userContact", "/showNewBankAccountForm").hasRole(USER)
                 .antMatchers("/","/resources/**", "/img/**", "/saveUser", "/showNewUserForm",
                          "/about", "/contact").permitAll()
 //                .antMatchers("/userHome","/static/**", "/loans","/logout", "/newAutoLoan",
@@ -77,7 +77,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .formLogin()
-                    .loginPage("/login.html").loginProcessingUrl("/login")
+                    .loginPage("/login").loginProcessingUrl("/login")
                     .defaultSuccessUrl("/userHome", true)
                     .permitAll()
                 .and()
