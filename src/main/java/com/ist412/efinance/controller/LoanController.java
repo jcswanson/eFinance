@@ -131,6 +131,12 @@ public class LoanController {
 
     }
 
+    @GetMapping("/deleteLoan/{loanId}")
+    public String deleteLoan(@PathVariable (value = "loanId") long loanId){
+        this.loanServiceImpl.deleteLoanById(loanId);
+        return "redirect:/loans";
+    }
+
 
 
 

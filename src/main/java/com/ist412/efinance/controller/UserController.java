@@ -71,6 +71,12 @@ public class UserController {
         return "contact";
     }
 
+    @GetMapping("/userContact")
+    public String userContact(){
+
+        return "User/user-contact";
+    }
+
     @GetMapping("/account")
     public String account(){
         return "accounts";
