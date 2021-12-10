@@ -51,7 +51,7 @@ public class UserController {
     @GetMapping("/userHome")
     public String userHome(){
 
-        return "User/user-home";
+        
 
         return "user/user-home";
 
@@ -73,6 +73,32 @@ public class UserController {
         userRepo.save(user);
         return "redirect:/login";
 
+    }
+
+    @GetMapping("/about")
+    public String about(){
+        return "about";
+    }
+
+    @GetMapping("/userAbout")
+    public String userAbout(){
+        return "user/user-about";
+    }
+
+    @GetMapping("/contact")
+    public String contact(){
+        return "contact";
+    }
+
+    @GetMapping("/userContact")
+    public String userContact(){
+
+        return "user/user-contact";
+    }
+
+    @GetMapping("/account")
+    public String account(){
+        return "accounts";
     }
 
 

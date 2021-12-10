@@ -58,6 +58,10 @@ public class LoanServiceImpl implements LoanService {
 
     @Override
     public void deleteLoanById(long loanId) {
+
         this.loanRepository.deleteById(loanId);
+
+
+
     }
 }

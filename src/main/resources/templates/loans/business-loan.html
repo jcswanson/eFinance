@@ -3,133 +3,100 @@
 <head th:replace="~{fragments/header :: head}"></head>
 <nav th:replace="~{fragments/navbar :: user-navbar}"></nav>
 <body>
-<div class="form__container">
-    <div class="title__container">
-        <h1>Business Loan Application</h1>
-        <p>Follow the 5 simple steps to submit your application!</p>
-    </div>
-    <div class="body__container">
-        <div class="left__container">
-            <div class="side__titles">
-                <div class="title__name">
-                    <h3>Job & Employer</h3>
-                    <p>Add employer details</p>
-                </div>
-                <div class="title__name">
-                    <h3>Loan Details</h3>
-                    <p>What terms are you seeking?</p>
-                </div>
-                <div class="title__name">
-                    <h3>Business Info</h3>
-                    <p>What will loan be used for?</p>
-                </div>
-                <div class="title__name">
-                    <h3>Budget</h3>
-                    <p>Select & press next</p>
-                </div>
-                <div class="title__name">
-                    <h3>Complete</h3>
-                    <p>Terms and Conditions and you're done!</p>
-                </div>
-            </div>
-            <div class="progress__bar__container">
-                <ul>
-                    <li class="active" id="icon1">
-                        <ion-icon name="person-outline"></ion-icon>
-                    </li>
-                    <li id="icon2">
-                        <ion-icon name="book-outline"></ion-icon>
-                    </li>
-                    <li id="icon3">
-                        <ion-icon name="layers-outline"></ion-icon>
-                    </li>
-                    <li id="icon4">
-                        <ion-icon name="pricetag-outline"></ion-icon>
-                    </li>
-                    <li id="icon5">
-                        <ion-icon name="mail-outline"></ion-icon>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="right__container">
-            <fieldset id="form1">
-                <div class="sub__title__container ">
-                    <p>Step 1/5</p>
-                    <h2>Employment Information</h2>
-                    <p>Please fill the details below so that we can we can vet you for the loan.</p>
-                </div>
-                <div class="input__container"><label for="ssn">Social Security Number</label> <input id="ssn"
-                                                                                                     type="text"></div>
-                <div class="input__container"><label for="employer">Employer Name</label> <input id="employer"
-                                                                                                 type="text"></div>
-                <div class="input__container"><label for="job">Job Title</label> <input id="job" type="text"></div>
-                <div class="input__container"><label for="salary">Annual Salary</label> <input id="salary" type="text">
-                    <a class="nxt__btn" onclick="nextForm();"> Next</a></div>
-            </fieldset>
-            <fieldset class="active__form" id="form2">
-                <div class="sub__title__container">
-                    <p>Step 2/5</p>
-                    <h2>What loan terms do you need?</h2>
-                    <p>Not guaranteed. If you don't qualify then we will offer you what you do qualify for, if
-                        accepted.</p>
-                </div>
-                <div class="input__container"><label for="loanAmount">Loan Amount</label> <input id="loanAmount" type="text"></div>
-                <div class="input__container"><label for="interest">Interest Rate</label> <input id="interest" type="text"></div>
-                <div class="input__container"><label for="term">Term in Months</label> <input id="term" type="text"></div>
-                <div class="buttons"><a class="prev__btn" onclick="prevForm();">Back</a>
-                    <a class="nxt__btn" onclick="nextForm();">Next</a></div>
+<div class="container container-margin">
 
-            </fieldset>
-            <fieldset class="active__form" id="form3">
-                <div class="sub__title__container">
-                    <p>Step 3/5</p>
-                    <h2>What kind of business is this loan for ?</h2>
-                    <p>Please let us know what type of business, its property costs, and your estimated profits.</p>
-                </div>
-                <div class="input__container">
-                    <div class="input__container"><label for="businessName">Business Name</label> <input id="businessName" type="text"></div>
-                    <div class="input__container"><label for="businessAddress">Business Address</label> <input id="businessAddress" type="text"></div>
-                    <div class="input__container"><label for="propertyCost">Property Cost (per month)</label> <input id="propertyCost" type="text"></div>
-                    <div class="input__container"><label for="estProfits">Estimated Profits</label> <input id="estProfits" type="text"></div>
-                    <div class="input__container"><p>Collateral</p><label for="collateralYes">Yes</label> <input id="collateralYes" type="radio">
-                    <label for="no">No</label><input id="no" type="radio"> </div>
+    <h2>Business Loan Application</h2>
+    <hr>
 
-                    <div class="buttons"><a class="prev__btn" onclick="prevForm();">Back</a> <a class="nxt__btn"
-                                                                                                onclick="nextForm();">Next</a>
-                    </div>
-                </div>
-            </fieldset>
-            <fieldset class="active__form" id="form4">
-                <div class="sub__title__container">
-                    <p>Step 4/5</p>
-                    <h2>Please select your budget</h2>
-                    <p>Please let us know budget for your project so yes are great that we can give the right quote
-                        thanks</p>
-                </div>
-                <div class="input__container"><input type="range" min="10000" max="500000" value="250000"
-                                                     class="slider">
-                    <div class="output__value"></div>
-                    <div class="buttons"><a class="prev__btn" onclick="prevForm();">Back</a> <a class="nxt__btn"
-                                                                                                onclick="nextForm();">Next</a>
-                    </div>
-                </div>
-            </fieldset>
-            <fieldset class="active__form" id="form5">
-                <div class="sub__title__container">
-                    <p>Step 5/5</p>
-                    <h2>Complete Submission</h2>
-                    <p>Thanks for completing the form and for your time.Plss enter your email below and submit the
-                        form</p>
-                </div>
-                <div class="input__container"><label for="Email">Enter your email</label> <input id="Email" type="text">
-                    <div class="buttons"><a class="prev__btn" onclick="prevForm();">Back</a> <a class="nxt__btn"
-                                                                                                id="submitBtn"
-                                                                                                onclick="nextForm();">Next</a>
-                    </div>
-                </div>
-            </fieldset>
+    <form class="row g-3" th:action="@{/saveBusinessLoan}" th:object="${businessLoan}" method="POST">
+
+        <h3>Business Information</h3>
+        <hr>
+        <br>
+        <div class="col-md-4">
+            <label for="businessName" class="form-label">Business Name: </label>
+            <input placeholder="Business Name: " type="text" th:field="*{businessName}" id="businessName" class="form-control" >
         </div>
+        <div class="col-md-4">
+            <label for="businessAddress" class="form-label">Business Address: </label>
+            <input placeholder="Business Address: " type="text" th:field="*{businessAddress}" id="businessAddress" class="form-control" >
+        </div>
+        <div class="col-md-4">
+            <label for="propertyCost" class="form-label">Property Cost: </label>
+            <input placeholder="Property Cost (per month) : " type="number" th:field="*{propertyCost}" id="propertyCost" class="form-control" >
+        </div>
+        <div class="col-md-4">
+            <label for="annualProfit" class="form-label">Annual Profit: </label>
+            <input placeholder="Annual Profit: " type="text" th:field="*{annualProfit}" id="annualProfit" class="form-control" >
+        </div>
+        <div class="col-md-4">
+            <label for="collateral" class="form-label">Collateral: </label>
+            <input placeholder="Collateral: " value="check" type="checkbox" th:field="*{collateral}" id="collateral" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label for="budget" class="form-label">Budget: </label>
+            <input placeholder="Budget: " type="number" th:field="*{budget}" id="budget" class="form-control">
+        </div>
+
+
+        <hr>
+        <div>
+            <h3> Applicant Information</h3>
+            <br>
+            <hr>
+        </div>
+        <div class="col-md-4">
+            <label for="socialSecurityNumber" class="form-label">Applicant SSN</label>
+            <input type="text" th:field="*{socialSecurityNumber}" id="socialSecurityNumber" class="form-control"  placeholder="Enter ssn number">
+        </div>
+        <div class="col-md-4">
+            <label for="employer" class="form-label">Applicant Employer</label>
+            <input type="text" th:field="*{employer}" class="form-control" id="employer" placeholder="Enter employer">
+        </div>
+        <div class="col-md-4">
+            <label for="jobTitle" class="form-label">Job Title</label>
+            <input type="text" th:field="*{jobTitle}" id="jobTitle" class="form-control" placeholder="Enter job title" >
+        </div>
+        <div class="col-md-3">
+            <label for="annualSalaryAmount" class="form-label">Annual Salary </label>
+            <input type="text" th:field="*{annualSalaryAmount}" id="annualSalaryAmount" class="form-control"  placeholder="Enter annual salary">
+        </div>
+        <div class="col-md-3">
+            <label for="interestRate" class="form-label">Interest Rate</label>
+            <input type="number" th:field="*{interestRate}" class="form-control" id="interestRate" placeholder="Enter interest rate">
+        </div>
+        <div class="col-md-3">
+            <label for="loanTerm" class="form-label">Loan Term (months)</label>
+            <input type="text" th:field="*{loanTermInMonths}"id="loanTerm" class="form-control" placeholder="Enter loan term in months">
+        </div>
+        <div class="col-md-3">
+            <label for="loanAmount" class="form-label">Loan Amount Needed</label>
+            <input type="text" th:field="*{loanAmount}" id="loanAmount" class="form-control"  placeholder="Enter loan amount">
+        </div>
+
+
+
+        <hr>
+        <div>
+            <h3> Terms and Conditions </h3>
+            <br>
+            <hr>
+        </div>
+        <div class="col-md-3">
+            <label for="signature" class="form-label" >If you agree to the <a href="https://www.sec.gov/Archives/edgar/data/1112920/000119312511334658/d267106dex101.htm" target="_blank"> terms and conditions</a><br><br> Print your full name: </label>
+
+            <input type="text" th:field="*{signature}" id="signature" class="form-control"  placeholder="Print full name: ">
+        </div>
+
+
+        <hr>
+
+        <div class="col-12">
+            <button  type="submit" class="btn btn-outline-success btn-lg col-4" id="formButton">Apply for Loan</button>
+        </div>
+
+    </form>
+
     </div>
 </div>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

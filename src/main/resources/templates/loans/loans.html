@@ -10,11 +10,13 @@
     <table style="border-width: 1px" class = "table table-striped table-responsive-md">
         <thead>
         <tr>
-            <th> Loan ID </th>
+            <th>Loan ID </th>
             <th>Loan Term (in months)</th>
             <th>Interest Rate (%)</th>
             <th>Loan Amount ($)</th>
             <th>Loan Status</th>
+            <th>Update Loan</th>
+            <th>Cancel Loan</th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +27,13 @@
             <td th:text="${loan.interestRate}"></td>
             <td th:text="${loan.loanAmount}"></td>
             <td th:text="${loan.loanStatus}"></td>
+            <td>
+                <a th:href="@{/showPersonalLoanFormForUpdate/{id}(id=${loan.loanId})}" class="btn btn-primary">Update Loan</a>
+            </td>
+            <td>
+                <a th:href="@{/deleteLoan/{id}(id=${loan.loanId})}" class="btn btn-danger" >Cancel Loan</a>
+            </td>
+
 <!--            <td> <a th:href="@{/showStudFormForUpdate/{id}(id=${student.sid})}" class="btn btn-primary">Update or Add Courses</a>-->
 <!--                <a th:href="@{/deleteStudent/{id}(id=${student.sid})}" class="btn btn-danger">Delete</a>-->
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head}"></head>
+<nav th:replace="~{fragments/navbar :: user-navbar}"></nav>
+<body>
+<div class="container container-margin">
+
+    <h1 class="page-title">Loan Application</h1>
+    <hr>
+    <form class="row g-3" th:action="@{/savePersonalLoan}" th:object="${personalLoan}" method="POST">
+
+        <input type="hidden" th:field="*{loanId}"/>
+        <div>
+            <h3> Update Applicant Information</h3>
+            <br>
+            <hr>
+        </div>
+        <div class="col-md-4">
+            <label for="socialSecurityNumber" class="form-label">Applicant SSN</label>
+            <input type="text" th:field="*{socialSecurityNumber}" id="socialSecurityNumber" class="form-control"  placeholder="Enter ssn number">
+        </div>
+        <div class="col-md-4">
+            <label for="employer" class="form-label">Applicant Employer</label>
+            <input type="text" th:field="*{employer}" class="form-control" id="employer" placeholder="Enter employer">
+        </div>
+        <div class="col-md-4">
+            <label for="jobTitle" class="form-label">Job Title</label>
+            <input type="text" th:field="*{jobTitle}" id="jobTitle" class="form-control" placeholder="Enter job title" >
+        </div>
+        <div class="col-md-3">
+            <label for="annualSalaryAmount" class="form-label">Annual Salary </label>
+            <input type="text" th:field="*{annualSalaryAmount}" id="annualSalaryAmount" class="form-control"  placeholder="Enter annual salary">
+        </div>
+        <div class="col-md-3">
+            <label for="interestRate" class="form-label">Interest Rate</label>
+            <input type="number" th:field="*{interestRate}" class="form-control" id="interestRate" placeholder="Enter interest rate">
+        </div>
+        <div class="col-md-3">
+            <label for="loanTerm" class="form-label">Loan Term (months)</label>
+            <input type="text" th:field="*{loanTermInMonths}"id="loanTerm" class="form-control" placeholder="Enter loan term in months">
+        </div>
+<!--        <div class="col-md-3">-->
+<!--            <label for="loanAmount" class="form-label">Loan Amount Needed</label>-->
+<!--            <input type="text" th:field="*{loanAmount}" id="loanAmount" class="form-control"  placeholder="Enter loan amount">-->
+<!--        </div>-->
+
+        <hr>
+        <!--        <div class="col-12">-->
+        <!--            <a th:href="@{login.html}" class="form-check-label">Already Registered? Login Here!</a>-->
+        <!--        </div>-->
+        <div class="col-12">
+            <button  type="submit" class="btn btn-outline-success btn-lg col-4" id="formButton">Apply for Loan</button>
+        </div>
+
+
+    </form>
+
+
+</div>
+
+
+<div th:replace="~{fragments/bootscript :: bootstrap-js}"></div>
+</body>
+</html>

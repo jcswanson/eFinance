@@ -59,14 +59,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .roles(ADMIN);
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/userHome","/resources/**", "/loans","/logout", "/newAutoLoan",
-                        "/newBusinessLoan", "/newPersonalLoan","/saveAutoLoan").hasRole(USER)
+
+                .antMatchers("/userHome","/static/**", "/loans","/logout", "/newAutoLoan",
+                        "/newBusinessLoan", "/newPersonalLoan","/saveAutoLoan", "/account", "/savePersonalLoan", "/newPersonalLoan",
+                        "/userContact").hasRole(USER)
                 .antMatchers("/","/resources/**", "/img/**", "/saveUser", "/showNewUserForm",
                          "/about", "/contact").permitAll()
+//                .antMatchers("/userHome","/static/**", "/loans","/logout", "/newAutoLoan",
+//                        "/newBusinessLoan", "/newPersonalLoan","/saveAutoLoan", "/account", "/savePersonalLoan", "/newPersonalLoan",
+//                        "/userContact").hasRole(ADMIN)
                 .anyRequest()
                 .authenticated()
                 .and()
