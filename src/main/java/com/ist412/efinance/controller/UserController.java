@@ -21,7 +21,6 @@ public class UserController {
     @Autowired
     UserRepository userRepo;
 
-
     @GetMapping("/login")
     public String login(){
         return "login";
@@ -51,8 +50,6 @@ public class UserController {
     @GetMapping("/userHome")
     public String userHome(){
 
-        
-
         return "user/user-home";
 
     }
@@ -75,20 +72,20 @@ public class UserController {
 
     }
 
-    @GetMapping("/about")
-    public String about(){
-        return "about";
-    }
+//    @GetMapping("/about")
+//    public String about(){
+//        return "about";
+//    }
 
     @GetMapping("/userAbout")
     public String userAbout(){
         return "user/user-about";
     }
-
-    @GetMapping("/contact")
-    public String contact(){
-        return "contact";
-    }
+//
+//    @GetMapping("/contact")
+//    public String contact(){
+//        return "contact";
+//    }
 
     @GetMapping("/userContact")
     public String userContact(){
@@ -96,10 +93,10 @@ public class UserController {
         return "user/user-contact";
     }
 
-    @GetMapping("/account")
-    public String account(){
-        return "accounts";
-    }
+//    @GetMapping("/account")
+//    public String account(){
+//        return "accounts";
+//    }
 
 
 }

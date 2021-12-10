@@ -15,9 +15,21 @@
     <h1 style="text-align:center;" th:inline="text">
         Welcome [[${#request.userPrincipal.principal.fullName}]] to eFinance!</h1>
     </br>
-    <p style="text-align:center;">
-        This project was created by Group 5
-    </p>
+    <div class="container col-8">
+        <h3 style="text-align:center;">
+            eFinance is partnered with ATZ Bank, providing easy financing for all customers.
+        </h3>
+        <br>
+        <p style="text-align: center;">
+            Whether you need a loan for your business, a new car, or you just need money, we are here for you.
+        </p>
+
+    </div>
+    <div class="container col-4" style="text-align:center;">
+        <div class="row py-2">
+            <a th:href="@{/logout}" class="btn-lg btn-dark col-12 btn-block ">Logout</a>
+        </div>
+    </div>
 </div><div th:replace="~{fragments/bootscript :: bootstrap-js}"></div>
 
 </body>
