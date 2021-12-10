@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/userHome","/static/**", "/loans","/logout", "/newAutoLoan",
-                        "/newBusinessLoan", "/newPersonalLoan","/saveAutoLoan", "/account").hasRole(USER)
+                        "/newBusinessLoan", "/newPersonalLoan","/saveAutoLoan", "/account", "/bank_account").hasRole(USER)
                 .antMatchers("/","/static/**", "/saveUser", "/showNewUserForm",
                          "/about", "/contact").permitAll()
                 .anyRequest()

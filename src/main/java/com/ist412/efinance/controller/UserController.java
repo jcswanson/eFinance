@@ -40,7 +40,7 @@ public class UserController {
 
     @GetMapping("/userHome")
     public String userHome(){
-        return "User/user-home";
+        return "user/user-home";
     }
 
     @GetMapping("/showNewUserForm")

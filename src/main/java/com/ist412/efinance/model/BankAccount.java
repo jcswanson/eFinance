@@ -15,9 +15,9 @@ public class BankAccount implements Serializable {
     @Column(name = "last")
     private String lastName;
     @Column(name = "bankName")
-    private String bankname; //what is the name of the bank used
-    @Column(name = "bankAccountnumber")
-    private Long bankAccountnumber;
+    private String bankName; //what is the name of the bank used
+    @Column(name = "bankAccountNumber")
+    private Long bankAccountNumber;
     @Column(name = "routingNumber")
     private Long routingNumber; //9 digit routing number
     @Column(name = "accountType")
@@ -54,28 +54,28 @@ public class BankAccount implements Serializable {
         this.lastName = lastName;
     }
 
-    public Long getBankAccountnumber() {
-        return bankAccountnumber;
+    public Long getBankAccountNumber() {
+        return bankAccountNumber;
     }
 
-    public void setBankAccountnumber(Long bankaccountnumber) {
-        this.bankAccountnumber = bankaccountnumber;
+    public void setBankAccountNumber(Long bankAccountNumber) {
+        this.bankAccountNumber = bankAccountNumber;
     }
 
     public Long getRoutingNumber() {
         return routingNumber;
     }
 
-    public void setRoutingNumber(Long routingnumber) {
-        this.routingNumber = routingnumber;
+    public void setRoutingNumber(Long routingNumber) {
+        this.routingNumber = routingNumber;
     }
 
-    public String getBankname() {
-        return bankname;
+    public String getBankName() {
+        return bankName;
     }
 
-    public void setBankname(String bankname) {
-        this.bankname = bankname;
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
     }
 
     public String getAccountType() {
