@@ -47,7 +47,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
+
+        // CREATE TWO ADMIN ROLES IN MEMORY FOR LOAN PROCESSING
+        auth.inMemoryAuthentication()
+                .withUser("ATZ")
+                .password(passwordEncoder().encode("atz"))
+                .roles(ADMIN)
+                .and()
+                .withUser("atz_admin")
+                .password(passwordEncoder().encode("admin"))
+                .roles(ADMIN);
+
     }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -58,6 +70,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/userContact").hasRole(USER)
                 .antMatchers("/","/static/**", "/saveUser", "/showNewUserForm",
                          "/about", "/contact").permitAll()
+//                .antMatchers("/userHome","/static/**", "/loans","/logout", "/newAutoLoan",
+//                        "/newBusinessLoan", "/newPersonalLoan","/saveAutoLoan", "/account", "/savePersonalLoan", "/newPersonalLoan",
+//                        "/userContact").hasRole(ADMIN)
                 .anyRequest()
                 .permitAll()
                 .and()

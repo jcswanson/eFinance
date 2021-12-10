@@ -66,6 +66,11 @@ public class UserController {
         return "about";
     }
 
+    @GetMapping("/userAbout")
+    public String userAbout(){
+        return "User/user-about";
+    }
+
     @GetMapping("/contact")
     public String contact(){
         return "contact";

@@ -47,6 +47,21 @@ public class LoanController {
         return "loans/auto-loan";
     }
 
+    @GetMapping("/saveLoan")
+    public String saveLoan(@ModelAttribute("newLoan") Loan newLoan, Errors errors,
+                           Principal principal){
+        if(errors.hasErrors()){
+            return "loans/loans";
+        }
+        User applicant = customUserDetailsService.getUserByPrincipal(principal);
+        newLoan.setLoanStatus("UPDATED");
+        log.info(applicant.toString());
+        this.loanServiceImpl.saveLoan(newLoan, applicant);
+        return "redirect:/loans";
+
+
+    }
+
     @PostMapping("/saveAutoLoan")
     public String saveAutoLoan(@ModelAttribute("autoLoan") AutoLoan autoLoan, Errors errors,
                                Principal principal){
@@ -90,11 +105,17 @@ public class LoanController {
     public String showPersonalLoanFormForUpdate(@PathVariable(value = "loanId") long loanId, Model model){
 
         Loan personalLoan = loanServiceImpl.getLoanById(loanId);
+
         model.addAttribute("personalLoan", personalLoan);
+
         //PersonalLoan PL = new PersonalLoan();
-        //AutoLoan AL = new AutoLoan();
+        AutoLoan AL = new AutoLoan();
+
+
+
 
         return "loans/update_personal-loan";
+
 
     }
 
