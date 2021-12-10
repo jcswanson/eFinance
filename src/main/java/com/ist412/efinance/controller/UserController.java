@@ -28,6 +28,16 @@ public class UserController {
 
     }
 
+    @GetMapping("/admin")
+    public String adminHome(){
+        return "admin/admin-home";
+    }
+//    @GetMapping("/logout")
+//    public String logout(){
+//        return "logout";
+//    }
+
+
 
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
@@ -35,12 +45,16 @@ public class UserController {
         if (auth != null){
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "redirect:/login?logout";
+        return "logout";
     }
 
     @GetMapping("/userHome")
     public String userHome(){
-        return "User/user-home";
+
+        
+
+        return "user/user-home";
+
     }
 
     @GetMapping("/showNewUserForm")
@@ -68,7 +82,7 @@ public class UserController {
 
     @GetMapping("/userAbout")
     public String userAbout(){
-        return "User/user-about";
+        return "user/user-about";
     }
 
     @GetMapping("/contact")
@@ -79,7 +93,7 @@ public class UserController {
     @GetMapping("/userContact")
     public String userContact(){
 
-        return "User/user-contact";
+        return "user/user-contact";
     }
 
     @GetMapping("/account")
