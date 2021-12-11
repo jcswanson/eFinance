@@ -1,7 +1,7 @@
 # eFinance
 Group project made with Spring Boot. eFinance is a web application used for loan application and lending account access.
 
-#Instructions - Running the application
+# Instructions - Running the application
 Setup:
 - In order to first run the application you must have MySQL Workbench installed and either intellij or another IDE
 - Create a new schema in your MySQL workbench and name it "eFinance" or something similar (you will need to link this name in the application.properties)
