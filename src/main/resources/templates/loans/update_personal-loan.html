@@ -7,13 +7,14 @@
 
     <h1 class="page-title">Loan Application</h1>
     <hr>
-    <form class="row g-3" th:action="@{/savePersonalLoan}" th:object="${personalLoan}" method="POST">
+    <form class="row g-3" th:action="@{/saveUpdateLoan}" th:object="${personalLoan}" method="POST">
 
         <input type="hidden" th:field="*{loanId}"/>
         <div>
             <h3> Update Applicant Information</h3>
             <br>
             <hr>
+
         </div>
         <div class="col-md-4">
             <label for="socialSecurityNumber" class="form-label">Applicant SSN</label>

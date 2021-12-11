@@ -1,25 +1,31 @@
 package com.ist412.efinance.model;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.persistence.*;
 import java.io.Serializable;
+
+@Slf4j
 @Entity
 @Table(name = "bank_account")
 public class BankAccount implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "bank_id")
-    private Long bid;
+    private long bid;
     @Column(name = "first")
     private String firstName;
     @Column(name = "last")
     private String lastName;
     @Column(name = "bankName")
-    private String bankname; //what is the name of the bank used
-    @Column(name = "bankAccountnumber")
-    private Long bankAccountnumber;
+    private String bankName; //what is the name of the bank used
+    @Column(name = "bankAccountNumber")
+    private int bankAccountNumber;
     @Column(name = "routingNumber")
-    private Long routingNumber; //9 digit routing number
+    private int routingNumber; //9 digit routing number
     @Column(name = "accountType")
     private String accountType;//checking, savings or other
 
@@ -30,11 +36,11 @@ public class BankAccount implements Serializable {
     //getters and setters
 
 
-    public Long getBid() {
+    public long getBid() {
         return bid;
     }
 
-    public void setBid(Long bid) {
+    public void setBid(long bid) {
         this.bid = bid;
     }
 
@@ -54,28 +60,12 @@ public class BankAccount implements Serializable {
         this.lastName = lastName;
     }
 
-    public Long getBankAccountnumber() {
-        return bankAccountnumber;
+    public String getBankName() {
+        return bankName;
     }
 
-    public void setBankAccountnumber(Long bankaccountnumber) {
-        this.bankAccountnumber = bankaccountnumber;
-    }
-
-    public Long getRoutingNumber() {
-        return routingNumber;
-    }
-
-    public void setRoutingNumber(Long routingnumber) {
-        this.routingNumber = routingnumber;
-    }
-
-    public String getBankname() {
-        return bankname;
-    }
-
-    public void setBankname(String bankname) {
-        this.bankname = bankname;
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
     }
 
     public String getAccountType() {
@@ -85,4 +75,21 @@ public class BankAccount implements Serializable {
     public void setAccountType(String accountType) {
         this.accountType = accountType;
     }
+
+    public int getBankAccountNumber() {
+        return bankAccountNumber;
+    }
+
+    public void setBankAccountNumber(int bankAccountNumber) {
+        this.bankAccountNumber = bankAccountNumber;
+    }
+
+    public int getRoutingNumber() {
+        return routingNumber;
+    }
+
+    public void setRoutingNumber(int routingNumber) {
+        this.routingNumber = routingNumber;
+    }
 }
+

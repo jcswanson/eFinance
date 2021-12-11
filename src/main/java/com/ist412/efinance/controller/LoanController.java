@@ -29,6 +29,9 @@ public class LoanController {
     private UserRepository userRepository;
 
     @Autowired
+    private LoanRepository loanRepository;
+
+    @Autowired
     CustomUserDetailsService customUserDetailsService;
 
     @Autowired
@@ -38,6 +41,15 @@ public class LoanController {
     public String getUserLoans(Model model, Principal principal) {
         model.addAttribute("listOfLoans", loanServiceImpl.getAllUserLoans(customUserDetailsService.getUserByPrincipal(principal)));
         return "loans/loans";
+    }
+
+    @GetMapping("/adminLoans")
+    public String getAllLoans(Model model, Principal principal){
+        model.addAttribute("allPendingLoans", loanServiceImpl.getAllLoans());
+
+        return "admin/client-loans";
+
+
     }
 
     @GetMapping("/newAutoLoan")
@@ -99,19 +111,33 @@ public class LoanController {
 
     }
 
+    @PostMapping("/saveUpdateLoan")
+    public String saveUpdateLoan(@ModelAttribute("updateLoan") Loan updateLoan, Errors errors,
+                                   Principal principal){
+        if(errors.hasErrors()){
+            return "loans/loans";
+        }
+
+        User applicant = customUserDetailsService.getUserByPrincipal(principal);
+        log.info(applicant.toString());
+        this.loanServiceImpl.saveLoan(updateLoan, applicant);
+        this.loanServiceImpl.getAllLoans();
+
+        return "redirect:/loans";
+
+    }
+
+
     // Update - View form for personalLoan
 
     @GetMapping("/showPersonalLoanFormForUpdate/{loanId}")
     public String showPersonalLoanFormForUpdate(@PathVariable(value = "loanId") long loanId, Model model){
 
         Loan personalLoan = loanServiceImpl.getLoanById(loanId);
-
         model.addAttribute("personalLoan", personalLoan);
 
         //PersonalLoan PL = new PersonalLoan();
 //        AutoLoan AL = new AutoLoan();
-
-
 
 
         return "loans/update_personal-loan";
@@ -145,8 +171,10 @@ public class LoanController {
     @GetMapping("/showAutoLoanFormForUpdate/{loanId}")
     public String showAutoLoanFormForUpdate(@PathVariable(value = "loanId") long loanId, Model model){
 
+//        User applicant = customUserDetailsService.getUserByPrincipal(principal);
         Loan autoLoan = loanServiceImpl.getLoanById(loanId);
         model.addAttribute("autoLoan", autoLoan);
+//        this.loanServiceImpl.saveLoan(autoLoan, applicant);
         return "loans/update_auto-loan";
 
 
@@ -158,11 +186,23 @@ public class LoanController {
         return "redirect:/loans";
     }
 
+    @GetMapping("/approveLoan/{loanId}")
+    public String approveLoan(@PathVariable (value = "loanId") long loanId){
 
+        Loan approveLoan = loanServiceImpl.getLoanById(loanId);
+        approveLoan.setLoanStatus("APPROVED");
+        this.loanServiceImpl.adminSaveLoan(approveLoan);
+        return "redirect:/adminLoans";
+    }
 
+    @GetMapping("/cancelLoan/{loanId}")
+    public String cancelLoan(@PathVariable (value = "loanId") long loanId){
 
-
-
+        Loan cancelLoan = loanServiceImpl.getLoanById(loanId);
+        cancelLoan.setLoanStatus("DENIED");
+        this.loanServiceImpl.adminSaveLoan(cancelLoan);
+        return "redirect:/adminLoans";
+    }
 
 
 

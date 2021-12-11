@@ -3,6 +3,52 @@
 <head th:replace="~{fragments/header :: head}"></head>
 <nav th:replace="~{fragments/navbar :: admin-navbar}"></nav>
 <body>
+<h1 style="text-align:center;" class="page-title"> Pending Loan Applications</h1>
+<div class="container my-2">
 
+
+    <table style="border-width: 1px" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Loan Id </th>
+            <th>Signature</th>
+            <th>Loan Status</th>
+            <th>Salary</th>
+            <th>Loan Amount</th>
+            <th>Approve Loan</th>
+            <th>Deny Loan</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <tr th:each="adminLoan : ${allPendingLoans}">
+            <td th:text="${adminLoan.loanId}"></td>
+            <td th:text="${adminLoan.signature}"></td>
+            <td th:text="${adminLoan.loanStatus}"></td>
+            <td th:text="${adminLoan.annualSalaryAmount}"></td>
+            <td th:text="${adminLoan.loanAmount}"></td>
+            <td>
+                <a th:href="@{/approveLoan/{id}(id=${adminLoan.loanId})}" th:hidden="${adminLoan.loanStatus == 'DENIED' or adminLoan.loanStatus == 'APPROVED'}" class="btn btn-primary">Approve Loan</a>
+                <a th:href="@{/approveLoan/{id}(id=${adminLoan.loanId})}" th:hidden="${adminLoan.loanStatus == 'DENIED' or adminLoan.loanStatus == 'SUBMITTED'}" class="btn btn-outline-primary">APPROVED!</a>
+            </td>
+            <td>
+                <a th:href="@{/cancelLoan/{id}(id=${adminLoan.loanId})}" th:hidden="${adminLoan.loanStatus == 'APPROVED' or adminLoan.loanStatus == 'DENIED'}" class="btn btn-danger" >Deny Loan</a>
+                <button th:href="@{/cancelLoan/{id}(id=${adminLoan.loanId})}" th:hidden="${adminLoan.loanStatus == 'APPROVED' or adminLoan.loanStatus == 'SUBMITTED'}"  type="button" class="btn btn-outline-danger" data-toggle="popover" data-placement="right" title="Popover title" data-content="You have been denied for the following reasons" >DENIED!</button>
+
+            </td>
+
+
+        </tr>
+
+
+
+        </tr>
+        </tbody>
+
+
+    </table>
+</div>
+    <div th:replace="~{fragments/bootscript :: bootstrap-js}"></div>
 </body>
+
 </html>
