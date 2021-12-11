@@ -3,9 +3,49 @@
 <head th:replace="~{fragments/header :: head}"></head>
 <nav th:replace="~{fragments/navbar :: admin-navbar}"></nav>
 <body>
-<h1 style="text-align:center;" class="page-title"> All Clients</h1>
-<hr>
+<h1 style="text-align:center;" class="page-title"> All eFinance Users</h1>
+<div class="container my-2">
+    <table style="border-width: 1px" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>User Id </th>
+            <th>First name </th>
+            <th>Last name </th>
+            <th>Date of Birth </th>
+            <th>Address </th>
+            <th>Zip Code </th>
+            <th>State </th>
+            <th>Username </th>
 
 
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+
+            <tr th:each="adminClients : ${userList}">
+            <td th:text="${adminClients.uid}"></td>
+            <td th:text="${adminClients.firstName}"></td>
+            <td th:text="${adminClients.lastName}"></td>
+            <td th:text="${adminClients.dateOfBirth}"></td>
+            <td th:text="${adminClients.address}"></td>
+            <td th:text="${adminClients.zipCode}"></td>
+            <td th:text="${adminClients.state}"></td>
+            <td th:text="${adminClients.username}"></td>
+
+        </tr>
+        </tr>
+        </tbody>
+
+
+    </table>
+
+
+
+</div>
+
+
+
+<div th:replace="~{fragments/bootscript :: bootstrap-js}"></div>
 </body>
 </html>
