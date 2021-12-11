@@ -70,7 +70,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/userContact", "/showNewBankAccountForm", "/showNewBankAccountForm", "/saveBankAccount").hasRole(USER)
                 .antMatchers("/","/resources/**", "/img/**", "/saveUser", "/showNewUserForm",
                          "/about", "/contact").permitAll()
-                .antMatchers("/adminHome", "/adminLogout", "/approveLoan/{loanId}").hasRole(ADMIN)
+                .antMatchers("/adminHome", "/adminLogout", "/approveLoan/{loanId}", "/adminLogout").hasRole(ADMIN)
 //                .antMatchers("/userHome","/static/**", "/loans","/logout", "/newAutoLoan",
 //                        "/newBusinessLoan", "/newPersonalLoan","/saveAutoLoan", "/account", "/savePersonalLoan", "/newPersonalLoan",
 //                        "/userContact").hasRole(ADMIN)

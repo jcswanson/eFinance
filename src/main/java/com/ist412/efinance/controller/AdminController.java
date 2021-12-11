@@ -25,8 +25,12 @@ public class AdminController {
         if (auth != null){
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "admin/admin_logout";
+        return "admin/admin-logout";
     }
 
+    @GetMapping("/adminClients")
+    public String adminClients(){
+        return "admin/clients";
+    }
 
 }

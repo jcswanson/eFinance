@@ -28,10 +28,15 @@
             <td th:text="${loan.loanAmount}"></td>
             <td th:text="${loan.loanStatus}"></td>
             <td>
-                <a th:href="@{/showPersonalLoanFormForUpdate/{id}(id=${loan.loanId})}" class="btn btn-primary">Update Loan</a>
+                <a th:href="@{/showPersonalLoanFormForUpdate/{id}(id=${loan.loanId})}" th:hidden="${loan.loanStatus == 'DENIED' or loan.loanStatus == 'APPROVED'}" class="btn btn-primary">Update Loan</a>
+                <button th:href="@{/deleteLoan/{id}(id=${loan.loanId})}" th:hidden="${loan.loanStatus == 'DENIED' or loan.loanStatus == 'SUBMITTED'}"  type="button" class="btn btn-outline-primary" data-toggle="popover" data-placement="right" title="You have been Approved" data-content="You have been denied for the following reasons" >APPROVED!</button>
+
             </td>
             <td>
-                <a th:href="@{/deleteLoan/{id}(id=${loan.loanId})}" class="btn btn-danger" >Cancel Loan</a>
+                <a th:href="@{/deleteLoan/{id}(id=${loan.loanId})}" th:hidden="${loan.loanStatus == 'DENIED' or loan.loanStatus == 'APPROVED'}" class="btn btn-danger" >Cancel Loan</a>
+                <button th:href="@{/deleteLoan/{id}(id=${loan.loanId})}" th:hidden="${loan.loanStatus == 'APPROVED' or loan.loanStatus == 'SUBMITTED'}"  type="button" class="btn btn-outline-danger" data-toggle="popover" data-placement="right" title="Popover title" data-content="You have been denied for the following reasons" >DENIED!</button>
+
+
             </td>
 
 <!--            <td> <a th:href="@{/showStudFormForUpdate/{id}(id=${student.sid})}" class="btn btn-primary">Update or Add Courses</a>-->
