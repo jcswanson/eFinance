@@ -64,4 +64,24 @@ public class LoanServiceImpl implements LoanService {
 
 
     }
+
+    @Override
+    public void adminSaveLoan(Loan loan) {
+        this.loanRepository.save(loan);
+    }
+
+    @Override
+    public void saveLoanByID(long loanId) {
+        Optional<Loan> optionalLoan = loanRepository.findById(loanId);
+        Loan loan = null;
+        if (optionalLoan.isPresent()){
+            loan = optionalLoan.get();
+        } else {
+            throw new RuntimeException("Loan not found for ID:: " + loanId);
+        }
+
+        this.loanRepository.save(loan);
+
+
+    }
 }

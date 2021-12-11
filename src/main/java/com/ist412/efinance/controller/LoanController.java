@@ -29,6 +29,9 @@ public class LoanController {
     private UserRepository userRepository;
 
     @Autowired
+    private LoanRepository loanRepository;
+
+    @Autowired
     CustomUserDetailsService customUserDetailsService;
 
     @Autowired
@@ -38,6 +41,15 @@ public class LoanController {
     public String getUserLoans(Model model, Principal principal) {
         model.addAttribute("listOfLoans", loanServiceImpl.getAllUserLoans(customUserDetailsService.getUserByPrincipal(principal)));
         return "loans/loans";
+    }
+
+    @GetMapping("/adminLoans")
+    public String getAllLoans(Model model, Principal principal){
+        model.addAttribute("allPendingLoans", loanServiceImpl.getAllLoans());
+
+        return "admin/client-loans";
+
+
     }
 
     @GetMapping("/newAutoLoan")
@@ -158,11 +170,23 @@ public class LoanController {
         return "redirect:/loans";
     }
 
+    @GetMapping("/approveLoan/{loanId}")
+    public String approveLoan(@PathVariable (value = "loanId") long loanId){
 
+        Loan approveLoan = loanServiceImpl.getLoanById(loanId);
+        approveLoan.setLoanStatus("APPROVED");
+        this.loanServiceImpl.adminSaveLoan(approveLoan);
+        return "redirect:/adminLoans";
+    }
 
+    @GetMapping("/cancelLoan/{loanId}")
+    public String cancelLoan(@PathVariable (value = "loanId") long loanId){
 
-
-
+        Loan cancelLoan = loanServiceImpl.getLoanById(loanId);
+        cancelLoan.setLoanStatus("DENIED");
+        this.loanServiceImpl.adminSaveLoan(cancelLoan);
+        return "redirect:/adminLoans";
+    }
 
 
 
