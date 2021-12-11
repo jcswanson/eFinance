@@ -111,19 +111,33 @@ public class LoanController {
 
     }
 
+    @PostMapping("/saveUpdateLoan")
+    public String saveUpdateLoan(@ModelAttribute("updateLoan") Loan updateLoan, Errors errors,
+                                   Principal principal){
+        if(errors.hasErrors()){
+            return "loans/loans";
+        }
+
+        User applicant = customUserDetailsService.getUserByPrincipal(principal);
+        log.info(applicant.toString());
+        this.loanServiceImpl.saveLoan(updateLoan, applicant);
+        this.loanServiceImpl.getAllLoans();
+
+        return "redirect:/loans";
+
+    }
+
+
     // Update - View form for personalLoan
 
     @GetMapping("/showPersonalLoanFormForUpdate/{loanId}")
     public String showPersonalLoanFormForUpdate(@PathVariable(value = "loanId") long loanId, Model model){
 
         Loan personalLoan = loanServiceImpl.getLoanById(loanId);
-
         model.addAttribute("personalLoan", personalLoan);
 
         //PersonalLoan PL = new PersonalLoan();
 //        AutoLoan AL = new AutoLoan();
-
-
 
 
         return "loans/update_personal-loan";
@@ -157,8 +171,10 @@ public class LoanController {
     @GetMapping("/showAutoLoanFormForUpdate/{loanId}")
     public String showAutoLoanFormForUpdate(@PathVariable(value = "loanId") long loanId, Model model){
 
+//        User applicant = customUserDetailsService.getUserByPrincipal(principal);
         Loan autoLoan = loanServiceImpl.getLoanById(loanId);
         model.addAttribute("autoLoan", autoLoan);
+//        this.loanServiceImpl.saveLoan(autoLoan, applicant);
         return "loans/update_auto-loan";
 
 

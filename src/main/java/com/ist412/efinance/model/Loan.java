@@ -13,6 +13,8 @@ import java.util.Objects;
 @Slf4j
 @Entity
 @Data
+@Getter
+@Setter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Loan  implements Serializable{
 
