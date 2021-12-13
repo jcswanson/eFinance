@@ -62,17 +62,19 @@ public class User implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "applicant", orphanRemoval = true)
+
     private List<Loan> loans = new ArrayList<>();
 
     public void addLoan(Loan loan){
         loan.setApplicant(this);
         this.loans.add(loan);
-
     }
+
     public void removeLoan(Loan loan){
         loan.setApplicant(null);
         this.loans.remove(loan);
     }
+
     public void removeLoans(){
         Iterator<Loan> iterator = this.loans.iterator();
         while(iterator.hasNext()){
@@ -80,6 +82,18 @@ public class User implements Serializable {
             loan.setApplicant(null);
             iterator.remove();
         }
+    }
+
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "newApplicant", orphanRemoval = true)
+
+    private List<BankAccount> bankAccounts = new ArrayList<>();
+
+    public void addBankAccount(BankAccount bankAccount){
+        bankAccount.setNewApplicant(this);
+        this.bankAccounts.add(bankAccount);
+
+
     }
 
     @Override
