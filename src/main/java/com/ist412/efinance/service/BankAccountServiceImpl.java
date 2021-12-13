@@ -15,7 +15,10 @@ public class BankAccountServiceImpl implements BankAccountService
     private BankAccountRepository bankAccountRepository;
 
     @Override
-    public List<BankAccount> getAllBankAccounts() {return bankAccountRepository.findAll();}
+    public List<BankAccount> getAllBankAccounts() {
+
+        return this.bankAccountRepository.findAll();
+    }
 
     @Override
     public void saveBankAccount(BankAccount bankAccount){this.bankAccountRepository.save(bankAccount);}

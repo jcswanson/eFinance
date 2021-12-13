@@ -5,6 +5,32 @@
     <title>Title</title>
 </head>
 <body>
+<h1 style="text-align:center;" class="page-title"> [[${#request.userPrincipal.principal.fullName}]]'s Bank Accounts</h1>
+<div class="container my-2">
+    <table style="border-width: 1px" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Bank Id</th>
+            <th>Bank Name</th>
+            <th>Bank Account Number</th>
+            <th>Routing Number</th>
+            <th>Account Type</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <tr th:each="userBankAccounts : ${getUserBankAccounts}">
+            <td th:text="${}"></td>
+
+
+
+            </tr>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
 
 </body>
 </html>

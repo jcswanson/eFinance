@@ -2,6 +2,7 @@ package com.ist412.efinance.controller;
 
 import com.ist412.efinance.model.BankAccount;
 import com.ist412.efinance.service.BankAccountService;
+import com.ist412.efinance.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +11,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.security.Principal;
+
 @Controller
 public class BankAccountController
 {
     @Autowired
     private BankAccountService bankAccountService;
+
+    @Autowired
+    CustomUserDetailsService customUserDetailsService;
 
     @GetMapping("/showNewBankAccountForm")
     public String showNewBankAccountForm(Model model) {
@@ -37,6 +43,16 @@ public class BankAccountController
     public String deleteBankAccount(@PathVariable(value = "id") long id) {
         this.bankAccountService.deleteBankAccountById(id);
         return "redirect:/";
+    }
+
+
+
+    @GetMapping("userBankAccounts")
+    public String userBankAccounts(Model model){
+
+        model.addAttribute("getUserBankAccounts", bankAccountService.getAllBankAccounts());
+
+        return "bankAccount/user_bank_account";
     }
 
 }

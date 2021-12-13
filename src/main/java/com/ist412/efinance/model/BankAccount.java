@@ -33,6 +33,20 @@ public class BankAccount implements Serializable {
 
     }
 
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+                "bid=" + bid +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", bankName='" + bankName + '\'' +
+                ", bankAccountNumber=" + bankAccountNumber +
+                ", routingNumber=" + routingNumber +
+                ", accountType='" + accountType + '\'' +
+                '}';
+    }
+
+
     //getters and setters
 
 
