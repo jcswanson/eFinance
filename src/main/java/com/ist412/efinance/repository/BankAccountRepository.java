@@ -11,10 +11,10 @@ import java.util.Optional;
 @Repository
 public interface BankAccountRepository extends JpaRepository<BankAccount, Long> {
 
-//    @Override
-//    Optional<BankAccount> findById(Long bid);
-
-    @Query("SELECT u FROM BankAccount u WHERE u.bid = ?1")
-    Optional<BankAccount> findById(long bid);
+    @Override
+    Optional<BankAccount> findById(Long bid);
+//
+//    @Query("SELECT u FROM BankAccount u WHERE u.bid = ?1")
+//    Optional<BankAccount> findById(long bid);
 
 }

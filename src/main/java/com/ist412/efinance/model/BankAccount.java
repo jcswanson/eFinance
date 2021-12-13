@@ -1,5 +1,7 @@
 package com.ist412.efinance.model;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
@@ -7,6 +9,8 @@ import java.io.Serializable;
 
 @Slf4j
 @Entity
+@Getter
+@Setter
 @Table(name = "bank_account")
 public class BankAccount implements Serializable {
 
@@ -33,6 +37,10 @@ public class BankAccount implements Serializable {
 
     }
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "newApplicant_id")
+    private User newApplicant;
+
     @Override
     public String toString() {
         return "BankAccount{" +
@@ -50,60 +58,5 @@ public class BankAccount implements Serializable {
     //getters and setters
 
 
-    public long getBid() {
-        return bid;
-    }
-
-    public void setBid(long bid) {
-        this.bid = bid;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getBankName() {
-        return bankName;
-    }
-
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
-    }
-
-    public String getAccountType() {
-        return accountType;
-    }
-
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
-    }
-
-    public int getBankAccountNumber() {
-        return bankAccountNumber;
-    }
-
-    public void setBankAccountNumber(int bankAccountNumber) {
-        this.bankAccountNumber = bankAccountNumber;
-    }
-
-    public int getRoutingNumber() {
-        return routingNumber;
-    }
-
-    public void setRoutingNumber(int routingNumber) {
-        this.routingNumber = routingNumber;
-    }
 }
 

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head}"></head>
+<nav th:replace="~{fragments/navbar :: user-navbar}"></nav>
 <body>
 <h1 style="text-align:center;" class="page-title"> [[${#request.userPrincipal.principal.fullName}]]'s Bank Accounts</h1>
 <div class="container my-2">
@@ -15,22 +13,36 @@
             <th>Bank Account Number</th>
             <th>Routing Number</th>
             <th>Account Type</th>
+            <th>Update</th>
+            <th>Delete</th>
+
+
 
         </tr>
         </thead>
         <tbody>
         <tr>
-            <tr th:each="userBankAccounts : ${getUserBankAccounts}">
-            <td th:text="${}"></td>
+        <tr th:each="bankAccountUser : ${getUserBankAccounts}">
+            <td th:text="${bankAccountUser.bid}"></td>
+            <td th:text="${bankAccountUser.bankName}"></td>
+            <td th:text="${bankAccountUser.bankAccountNumber}"></td>
+            <td th:text="${bankAccountUser.routingNumber}"></td>
+            <td th:text="${bankAccountUser.accountType}"></td>
 
+            <td>
+                <a th:href="@{/showPersonalLoanFormForUpdate/{id}(id=${bankAccountUser.bid})}" class="btn btn-primary">Update</a>
+            </td>
 
+            <td>
+                <a th:href="@{/deleteLoan/{id}(id=${bankAccountUser.bid})}"class="btn btn-danger" >Remove</a>
+            </td>
 
-            </tr>
+        </tr>
         </tr>
         </tbody>
 
     </table>
 </div>
-
+<div th:replace="~{fragments/bootscript :: bootstrap-js}"></div>
 </body>
 </html>
