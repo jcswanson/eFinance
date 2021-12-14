@@ -29,6 +29,9 @@
             <td th:text="${bankAccountUser.routingNumber}"></td>
             <td th:text="${bankAccountUser.accountType}"></td>
 
+
+<!--            Need to change the mapping -->
+
             <td>
                 <a th:href="@{/showPersonalLoanFormForUpdate/{id}(id=${bankAccountUser.bid})}" class="btn btn-primary">Update</a>
             </td>
