@@ -48,7 +48,7 @@ Logout:
 # Admin - Refactoring implementations
 
 Admin:
-- There is an in-memory admin accounts stored for access.
+- There is in-memory admin accounts stored for higher Spring Security and ADMIN_ROLE access.
 - Username: ATZ 
 - Password: atz
 
