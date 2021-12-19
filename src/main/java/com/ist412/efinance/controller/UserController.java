@@ -54,6 +54,11 @@ public class UserController {
 
     }
 
+    @GetMapping("/newPlaid")
+    public String newPlaid(){
+        return "plaid/new_plaid_form";
+    }
+
     @GetMapping("/showNewUserForm")
     public String showNewUserForm(Model model){
         User user = new User();
