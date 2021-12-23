@@ -57,6 +57,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("atz_admin")
                 .password(passwordEncoder().encode("admin"))
                 .roles(ADMIN);
+
+
     }
 
 
@@ -67,7 +69,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/userHome","/static/**", "/loans","/logout", "/newAutoLoan",
                         "/newBusinessLoan", "/newPersonalLoan","/saveAutoLoan", "/account", "/savePersonalLoan", "/newPersonalLoan",
-                        "/userContact", "/showNewBankAccountForm", "/showNewBankAccountForm", "/saveBankAccount", "/newPlaid").hasRole(USER)
+                        "/userContact", "/showNewBankAccountForm", "/showNewBankAccountForm", "/saveBankAccount", "/newPlaid",
+                        "/plaidLink").hasRole(USER)
                 .antMatchers("/","/resources/**", "/img/**", "/saveUser", "/showNewUserForm",
                          "/about", "/contact").permitAll()
                 .antMatchers("/adminHome", "/adminLogout", "/approveLoan/{loanId}", "/adminLogout").hasRole(ADMIN)

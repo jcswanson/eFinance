@@ -1,14 +1,17 @@
 package com.ist412.efinance.model;
 
+import com.plaid.client.model.CountryCode;
+import com.plaid.client.model.LinkTokenCreateRequest;
+import com.plaid.client.model.LinkTokenCreateRequestUser;
+import com.plaid.client.model.Products;
+import com.plaid.client.request.PlaidApi;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 @Entity
@@ -84,6 +87,10 @@ public class User implements Serializable {
         }
     }
 
+
+
+
+
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "newApplicant", orphanRemoval = true)
 
@@ -95,6 +102,12 @@ public class User implements Serializable {
 
 
     }
+
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "plaidApplicant", orphanRemoval = true)
+
+    private List<Plaid> plaids = new ArrayList<>();
+
 
     @Override
     public String toString() {
