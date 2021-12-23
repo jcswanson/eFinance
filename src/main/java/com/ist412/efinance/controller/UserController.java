@@ -1,6 +1,7 @@
 package com.ist412.efinance.controller;
 
 
+import com.ist412.efinance.model.Plaid;
 import com.ist412.efinance.model.User;
 import com.ist412.efinance.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,20 @@ public class UserController {
     public String userHome(){
 
         return "user/user-home";
+
+    }
+
+    @GetMapping("/newPlaid")
+    public String newPlaid(){
+        return "plaid/new_plaid_form";
+    }
+
+    @GetMapping("/plaidLink")
+    public String showPlaidLink(Model model){
+        Plaid plaids = new Plaid();
+        model.addAttribute("linkView", plaids);
+
+        return "plaid/plaid-link";
 
     }
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head}"></head>
+<nav th:replace="~{fragments/navbar :: user-navbar}"></nav>
+<body>
+
+    <h1 style="text-align:center;" class="page-title">Plaid API</h1>
+    <div class="container my-2">
+    <form id="link-form-id" method="GET" style="text-align: center"></form>
+    </div>
+
+    <div th:replace="~{fragments/bootscript :: bootstrap-js}"></div>
+
+</body>
+
+
+<script
+        src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"
+        apiVersion="v2"
+        data-form-id="link-form-id"
+        data-key="47d7b25d61d1ed61e9de15f6bf4073"
+        data-product="transactions"
+        lang="fr"
+        isEmbedded="true"
+        data-env="sandbox">
+</script>
+
+
+</html>

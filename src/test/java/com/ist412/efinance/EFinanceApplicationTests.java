@@ -8,6 +8,7 @@ class EFinanceApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }
