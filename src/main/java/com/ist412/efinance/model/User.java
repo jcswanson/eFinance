@@ -103,10 +103,10 @@ public class User implements Serializable {
 
     }
 
-    @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "plaidApplicant", orphanRemoval = true)
-
-    private List<Plaid> plaids = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL,
+//            mappedBy = "plaidApplicant", orphanRemoval = true)
+//
+//    private List<Plaid> plaids = new ArrayList<>();
 
 
     @Override
