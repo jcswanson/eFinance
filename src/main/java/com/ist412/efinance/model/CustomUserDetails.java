@@ -13,12 +13,12 @@ import java.util.stream.Collectors;
 public class CustomUserDetails implements UserDetails {
 
     private static final long serialVersionUID = 1L;
-    private User user;
+    private final User user;
 
-    private String username;
-    private String password;
-    private boolean isActive;
-    private List<GrantedAuthority> authorities;
+    private final String username;
+    private final String password;
+    private final boolean isActive;
+    private final List<GrantedAuthority> authorities;
 
     public CustomUserDetails(User user) {
         this.user = user;

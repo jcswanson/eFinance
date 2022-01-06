@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 
+//@Entity
 public class Plaid implements Serializable{
 
 //    @Id
