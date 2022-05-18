@@ -1,6 +1,7 @@
 
 # eFinance
 Group project made with Spring Boot. eFinance is a web application used for loan application and lending account access.
+For a more comprehensive look at how we designed this application read our [Design Documentation](https://github.com/jcswanson/eFinance/blob/main/demonstration/Efinance-Design-Details.pdf). This documentation includes relevant UML Modeling of classes and functional activity.
 
 # Demonstration 
 
