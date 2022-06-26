@@ -73,7 +73,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/plaidLink").hasRole(USER)
                 .antMatchers("/","/resources/**", "/img/**", "/saveUser", "/showNewUserForm",
                          "/about", "/contact").permitAll()
-                .antMatchers("/adminHome", "/adminLogout", "/approveLoan/{loanId}", "/adminLogout").hasRole(ADMIN)
+                .antMatchers("/adminHome", "/adminLogout", "/approveLoan/{loanId}", "/adminLogout", "/approvedLoans", "/adminLoans").hasRole(ADMIN)
                 .anyRequest()
                 .authenticated()
                 .and()

@@ -81,7 +81,16 @@ public class LoanServiceImpl implements LoanService {
         }
 
         this.loanRepository.save(loan);
+    }
 
+    @Override
+    public List<Loan> getAllAcceptedLoans() {
+        return loanRepository.findByLoanStatus("APPROVED");
 
+    }
+
+    @Override
+    public List<Loan> getAllDeniedLoans() {
+        return loanRepository.findByLoanStatus("DENIED");
     }
 }

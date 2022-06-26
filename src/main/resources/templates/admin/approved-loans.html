@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head}"></head>
+<nav th:replace="~{fragments/navbar :: admin-navbar}"></nav>
+<body>
+
+<h1 style="text-align:center;" class="page-title"> Approved Loan Applications</h1>
+<div class="container my-2">
+
+    <table style="border-width: 1px" class = "table table-striped table-responsive-md">
+    <thead>
+    <tr>
+        <th>Loan Id </th>
+        <th>Signature</th>
+        <th>Loan Status</th>
+        <th>Salary</th>
+        <th>Loan Amount</th>
+        <th>Loan Approved</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+
+    <tr th:each="approveLoan : ${allApprovedLoans}">
+        <td th:text="${approveLoan.loanId}"></td>
+        <td th:text="${approveLoan.signature}"></td>
+        <td th:text="${approveLoan.loanStatus}"></td>
+        <td th:text="${approveLoan.annualSalaryAmount}"></td>
+        <td th:text="${approveLoan.loanAmount}"></td>
+
+        <td>
+            <a th:href="@{/approvedLoans}" class="btn btn-outline-primary">APPROVED!</a>
+        </td>
+
+    </tr>
+
+    </tr>
+    </tbody>
+
+    </table>
+
+
+
+</div>
+
+<div th:replace="~{fragments/bootscript :: bootstrap-js}"></div>
+
+</body>
+</html>

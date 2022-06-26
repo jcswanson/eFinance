@@ -12,7 +12,10 @@ public interface LoanBaseRepository <T extends Loan>
         extends JpaRepository<T, Long>{
 
 
-    public T findBySocialSecurityNumber(Integer ssn);
-    public T findByLoanId(Long loanId);
-    public List<T> findAllBySocialSecurityNumber(Integer ssn);
+    T findBySocialSecurityNumber(Integer ssn);
+    T findByLoanId(Long loanId);
+    List<T> findAllBySocialSecurityNumber(Integer ssn);
+    List<T> findByLoanStatus(String loan_status);
+
+
 }

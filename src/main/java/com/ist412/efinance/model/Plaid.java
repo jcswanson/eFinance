@@ -13,23 +13,23 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 
-@Entity
+//@Entity
 public class Plaid implements Serializable{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "plaid_id")
-    private long pid;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(name = "plaid_id")
+//    private long pid;
 
 
-    public Plaid() {
+//    public Plaid() {
+//
+//    }
 
-    }
 
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "plaidApplicant_id")
+//    private User plaidApplicant;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "plaidApplicant_id")
-    private User plaidApplicant;
-    
 
 }
