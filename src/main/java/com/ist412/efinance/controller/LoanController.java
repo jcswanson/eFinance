@@ -50,6 +50,14 @@ public class LoanController {
 
         return "admin/client-loans";
 
+    }
+
+    @GetMapping("/approvedLoans")
+    public String getApprovedLoans(Model model, Principal pricipal){
+
+        model.addAttribute("allApprovedLoans", loanServiceImpl.getAllAcceptedLoans());
+
+        return "admin/approved-loans";
 
     }
 
@@ -186,6 +194,8 @@ public class LoanController {
         this.loanServiceImpl.deleteLoanById(loanId);
         return "redirect:/loans";
     }
+
+    // ADMIN
 
     @GetMapping("/approveLoan/{loanId}")
     public String approveLoan(@PathVariable (value = "loanId") long loanId){

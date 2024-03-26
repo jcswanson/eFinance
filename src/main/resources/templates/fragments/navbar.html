@@ -79,7 +79,7 @@
                         <li><a class="dropdown-item" th:href="@{/showNewBankAccountForm}">Bank Account</a></li>
                         <li><a class="dropdown-item" th:href="@{/userBankAccounts}">My Accounts</a></li>
                         <li><a class="dropdown-item" th:href="@{/newPlaid}">Plaid Banking</a></li>
-                        <li><a class="dropdown-item" th:href="@{/plaidLink}">Plaid Banking Test</a></li>
+<!--                        <li><a class="dropdown-item" th:href="@{/plaidLink}">Plaid Banking Test</a></li>-->
 
 
 
@@ -172,17 +172,35 @@
                      class="img-responsive center-block" height="53" th:src="@{/img/efin-fist-dark.svg}" width="320"/>
             </a>
         </div>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+
+        <div class="navbar-collapse collapse"id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
+<!--        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">-->
 
                 <a class="nav-link" th:href="@{/adminHome}">ATZ Home</a>
 
                 <a class="nav-link" th:href="@{/adminClients}">ATZ Clients</a>
 
-                <a class="nav-link" th:href="@{/adminLoans}">ATZ Loans</a>
+<!--                <a class="nav-link" th:href="@{/adminLoans}">ATZ Loans</a>-->
 
-            </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">ATZ Loans</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+
+                        <li><a class="dropdown-item" th:href="@{/adminLoans}">All Loans</a></li>
+                        <li><a class="dropdown-item" th:href="@{/approvedLoans}">Approved Loans</a></li>
+
+
+                    </ul>
+                </li>
+            </ul>
+
         </div>
+    </div>
+
+<!--        </div>-->
         <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-right: 100px;">
             <a class="btn btn-sm btn-outline-secondary" th:href="@{/adminLogout}" type="button">Logout</a>
 
